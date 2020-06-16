@@ -59,5 +59,5 @@
     * [Acessado o jupyter notebook remotamente](#)
   
 1. [Submissão de jobs](#)
-    *[Rodando um código C com openMP](#)
-    *[Rodando um código C com MPI](#)
+    * [Rodando um código C com openMP](#)
+    * [Rodando um código C com MPI](#)
