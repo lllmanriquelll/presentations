@@ -98,8 +98,10 @@
 
 ### Acessado o jupyter notebook remotamente
 
-|           ![Acesso VPN](images/acesso/1_vpn.png)           |
+|    Acessar um jupyter notebook rodando no Santos Dumont    |
 | :--------------------------------------------------------: |
+|           ![Acesso VPN](images/acesso/1_vpn.png)           |
+|                            :--:                            |
 |           ![Acesso SSH](images/acesso/2_ssh.png)           |
 |                            :--:                            |
 |          ![srun](images/srun/1_srun_hostname.png)          |
@@ -108,9 +110,9 @@
 |                            :--:                            |
 |        ![jupyter-lab](images/jupyter/2_jupyter.png)        |
 |                            :--:                            |
-|      ![Browser](images/jupyter/3_jupyter_browser.png)      |
-|                            :--:                            |
 |             ![Túnel](images/tunel/1_tunel.png)             |
+|                            :--:                            |
+|      ![Browser](images/jupyter/3_jupyter_browser.png)      |
 |                            :--:                            |
 
 ## sbatch - Submissão de jobs <a name="sbatch"></a>
