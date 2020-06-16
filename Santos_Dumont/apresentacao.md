@@ -94,4 +94,23 @@
 
 ## srun - Shell em modo interativo e jupyter notebook <a name="srun"></a>
 
+### Rodando um script em python
+
+### Acessado o jupyter notebook remotamente
+
+|           ![Acesso VPN](images/acesso/1_vpn.png)           |
+| :--------------------------------------------------------: |
+|           ![Acesso SSH](images/acesso/1_ssh.png)           |
+|                            :--:                            |
+|          ![srun](images/srun/1_srun_hostname.png)          |
+|                            :--:                            |
+| ![Anaconda + Devito](images/jupyter/1_anaconda_devito.png) |
+|                            :--:                            |
+|        ![jupyter-lab](images/jupyter/2_jupyter.png)        |
+|                            :--:                            |
+|      ![Browser](images/jupyter/3_jupyter_browser.png)      |
+|                            :--:                            |
+|             ![Túnel](images/tunel/1_tunel.png)             |
+|                            :--:                            |
+
 ## sbatch - Submissão de jobs <a name="sbatch"></a>
