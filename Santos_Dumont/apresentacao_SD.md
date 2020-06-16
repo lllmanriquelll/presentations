@@ -1,13 +1,9 @@
 <h1 align="center"> Webinar - Cluster Santos Dumont </h1>
 <h2 align="center"> Acesso e submissão de jobs </h2>
    
-<figure class="image">
-  <img src="{{ include.url }}" alt="{{ include.description }}">
-  <figcaption>{{ include.description }}</figcaption>
-</figure>
-
-{% include image.html url="sd.jpg" description="https://itforum365.com.br/lncc-e-coppe-abrem-chamada-para-uso-de-supercomputadores/" %}
-
+| ![Santos Dumont](sd.jpg) | 
+|:--:| 
+| Fonte da imagem: https://itforum365.com.br/lncc-e-coppe-abrem-chamada-para-uso-de-supercomputadores/ |
 
 ## Sumário
 1. [Introdução ao cluster Santos Dumont](#introducao)
