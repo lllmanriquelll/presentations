@@ -1,8 +1,6 @@
-<center>
 # Webinar - Cluster Santos Dumont
 ###  Acesso e submissão de jobs
 !["Santos Dumont"](sd.jpg)
-</center>
 
 ## Sumário
 1. [Introdução ao cluster Santos Dumont](#introducao)
