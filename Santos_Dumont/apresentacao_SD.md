@@ -1,7 +1,7 @@
 <center>
 # Webinar - Cluster Santos Dumont
 ###  Acesso e submissão de jobs
-![Santos Dumont](sd.jpg)
+![Santos Dumont]("sd.jpg")
 </center>
 
 ## Sumário
