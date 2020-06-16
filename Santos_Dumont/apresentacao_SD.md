@@ -1,6 +1,6 @@
 <p align="center">
-   <h1> Webinar - Cluster Santos Dumont </h1>
-   <h2> Acesso e submissão de jobs </h2>
+   <b><h1> Webinar - Cluster Santos Dumont </h1></b>
+   <b><h2> Acesso e submissão de jobs </h2></b>
 </p>
 
 !["Santos Dumont"](sd.jpg)
