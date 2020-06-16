@@ -1,7 +1,7 @@
 <h1 align="center"> Webinar - Cluster Santos Dumont </h1>
 <h2 align="center"> Acesso e submissão de jobs </h2>
    
-| ![Santos Dumont](sd.jpg) | 
+| ![Santos Dumont](images/sd.jpg) | 
 |:--:| 
 | Fonte da imagem: https://itforum365.com.br/lncc-e-coppe-abrem-chamada-para-uso-de-supercomputadores/ |
 
