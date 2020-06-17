@@ -21,11 +21,13 @@
 1. [Requisitos de acesso](#requisitos)
 
    - [Ativação da conta](#ativacao)
-   - [Acesso VPN](#acesso)
+   - [Acesso VPN](#acesso_vpn)
 
    1. [Recomendações de ferramentas](#recomendacoes)
       - [Screen](#screen)
       - [Vim](#editor)
+
+1. [Acessando o Santos Dumont](#acesso)
 
 1. [Entendendo as partições dos discos](#particoes)
 
@@ -74,11 +76,29 @@
    - [Rodando um código C com openMP](#)
    - [Rodando um código C com MPI](#)
 
-## Introdução <a name="introduction"></a>
+## Introdução <a name="introducao"></a>
 
 ## Projeto CADASE <a name="cadase"></a>
 
 ## Requisitos de acesso <a name="requisitos"></a>
+
+## Acessando o Santos Dumont <a name="acesso"></a>
+
+<ol>
+
+<li>Se conecte à rede VPN utilizando o manual do Santos Dumont enviado por e-mail pelo helpdesk.</li><br>
+
+<center>
+<img src="images/acesso/1_vpn.png" width="890" height="450" />
+</center>
+
+<br><li>Estabeleça a conexão via ssh com: <b><i>ssh user@login.sdumont.lncc.br</i></b></li><br>
+
+<center>
+<img src="images/acesso/2_ssh.png" width="890" height="550" />
+</center>
+
+</ol>
 
 ## Entendendo as partições dos discos <a name="particoes"></a>
 
@@ -99,17 +119,6 @@
 ### Acessado o jupyter notebook remotamente <a name="jupyter"></a>
 
 <ol>
-<li>Se conecte à rede VPN utilizando o manual do Santos Dumont enviado por e-mail pelo helpdesk.</li><br>
-
-<center>
-<img src="images/acesso/1_vpn.png" width="890" height="450" />
-</center>
-
-<br><li>Estabeleça a conexão via ssh com: <b><i>ssh user@login.sdumont.lncc.br</i></b></li><br>
-
-<center>
-<img src="images/acesso/2_ssh.png" width="890" height="550" />
-</center>
 
 <br><li>Utilize o comando <b><i>srun</i></b> para alocar o node que será utilizado em modo interativo. <br> O parâmetro <b><i>-p</i></b> serve para identifcar a fila utilizada, o <b><i>--pty bash -i</i></b> identifca o tipo de shell da sessão que será retornada. <br> Outros parâmetros não utilizados aqui podem servir para requisitar uma quantidade específica memória, uso exclusivo do node, número de tasks (processos mpi), etc. Confira outros parâmetros e os tipos de máquinas de cada fila no manual do usuário.<br> Aproveite para guardar o hostname do node que foi alocado.</li><br>
 
