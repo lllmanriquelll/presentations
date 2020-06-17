@@ -78,6 +78,93 @@
 
 ## Introdução <a name="introducao"></a>
 
+|                                                                                                                                                                                                                                                                                                                                                                                                   Breve Histórico                                                                                                                                                                                                                                                                                                                                                                                                    |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| O supercomputador Santos Dumont (SDumont), adquirido junto a empresa francesa ATOS/BULL, está localizado na sede do Laboratório Nacional de Computação Científica (LNCC), em Petrópolis-RJ, atuando como nó central (Tier-0) do Sistema Nacional de Processamento de Alto Desempenho - SINAPAD. <br> A primeira versão do SDumont (2015), chamada de "SDumont Base", possuía um total de 18.424 núcleos de CPU, distribuídos em 758 nós computacionais utilizando a tecnologia BullX B700. <br> No quarto trimestre de 2019 o SDumont recebeu uma expansão computacional, composta da tecnologia BullSequana X, que aumentou o poder computacional de 1,1 Petaflops para 5,1 Petaflops. Após essa expansão o SDumont passou a contar com um total de 34.688 núcleos de CPU, distribuídos em 1132 nós computacionais. |
+
+## Hardware <a name="hardware"></a>
+
+<div align="center">
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-7btt{border-color:inherit;font-weight:bold;text-align:center;vertical-align:top}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-7btt">Qtd. de nós</th>
+    <th class="tg-7btt">Processador</th>
+    <th class="tg-7btt">Número de cores por nó</th>
+    <th class="tg-7btt">Memória</th>
+    <th class="tg-7btt">Acelerador</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-c3ow">504</td>
+    <td class="tg-c3ow">2 x Intel Xeon E5-2695v2</td>
+    <td class="tg-c3ow">24</td>
+    <td class="tg-c3ow">64GB</td>
+    <td class="tg-c3ow"></td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">198</td>
+    <td class="tg-c3ow">2 x Intel Xeon E5-2695v2</td>
+    <td class="tg-c3ow">24</td>
+    <td class="tg-c3ow">64GB</td>
+    <td class="tg-c3ow">1 x NVIDIA K40</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">54</td>
+    <td class="tg-c3ow">2 x Intel Xeon E5-2695v2</td>
+    <td class="tg-c3ow">24</td>
+    <td class="tg-c3ow">64GB</td>
+    <td class="tg-7btt">1 x Xeon Phi 7120</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">1</td>
+    <td class="tg-c3ow">16 x Intel Xeon Ivy Bridge</td>
+    <td class="tg-c3ow">240</td>
+    <td class="tg-c3ow">6TB</td>
+    <td class="tg-c3ow"></td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">246</td>
+    <td class="tg-c3ow">2 x Intel Xeon Skylake 6152</td>
+    <td class="tg-c3ow">48</td>
+    <td class="tg-c3ow">384GB</td>
+    <td class="tg-c3ow"></td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">36</td>
+    <td class="tg-c3ow">2 x Intel Xeon Skylake 6152</td>
+    <td class="tg-c3ow">48</td>
+    <td class="tg-c3ow">768GB</td>
+    <td class="tg-c3ow"></td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">94</td>
+    <td class="tg-c3ow">2 x Intel Xeon Skylake 6152</td>
+    <td class="tg-c3ow">48</td>
+    <td class="tg-c3ow">384GB</td>
+    <td class="tg-c3ow">4 x NVIDIA V100</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">1</td>
+    <td class="tg-c3ow">2 x Intel Xeon Skylake 6148</td>
+    <td class="tg-c3ow">40</td>
+    <td class="tg-c3ow">384GB</td>
+    <td class="tg-c3ow">8 x NVIDIA V100</td>
+  </tr>
+</tbody>
+</table>
+</div>
+
 ## Projeto CADASE <a name="cadase"></a>
 
 ## Requisitos de acesso <a name="requisitos"></a>
@@ -86,7 +173,7 @@
 
 <ol>
 
-<li>Se conecte à rede VPN utilizando o manual do Santos Dumont enviado por e-mail pelo helpdesk.</li><br>
+<br><li>Se conecte à rede VPN utilizando o manual do Santos Dumont enviado por e-mail pelo helpdesk.</li><br>
 
 <center>
 <img src="images/acesso/1_vpn.png" width="890" height="450" />
