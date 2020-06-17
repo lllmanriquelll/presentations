@@ -98,21 +98,48 @@
 
 ### Acessado o jupyter notebook remotamente
 
-|    Acessar um jupyter notebook rodando no Santos Dumont    |
-| :--------------------------------------------------------: |
-|           ![Acesso VPN](images/acesso/1_vpn.png)           |
-|                            :--:                            |
-|           ![Acesso SSH](images/acesso/2_ssh.png)           |
-|                            :--:                            |
-|          ![srun](images/srun/1_srun_hostname.png)          |
-|                            :--:                            |
-| ![Anaconda + Devito](images/jupyter/1_anaconda_devito.png) |
-|                            :--:                            |
-|        ![jupyter-lab](images/jupyter/2_jupyter.png)        |
-|                            :--:                            |
-|             ![Túnel](images/tunel/1_tunel.png)             |
-|                            :--:                            |
-|      ![Browser](images/jupyter/3_jupyter_browser.png)      |
-|                            :--:                            |
+<ol>
+<li><b>Se conecte à rede VPN utilizando o manual do Santos Dumont enviado por e-mail pelo helpdesk.</b></li><br>
+
+<center>
+<img src="images/acesso/1_vpn.png" width="890" height="450" />
+</center>
+
+<br><li><b>Estabeleça a conexão via ssh com: </b><i>ssh user@login.sdumont.lncc.br</i></li><br>
+
+<center>
+<img src="images/acesso/2_ssh.png" width="890" height="550" />
+</center>
+
+<br><li><b>Utilize o comando </b><i>srun</i><b> para alocar o node que será utilizado em modo interativo. <br> O parâmetro </b><i>-p</i><b> serve para identifcar a fila que será utilizada, o </b><i>--pty bash -i</i><b> identifca o tipo de shell da sessão que sera retornada. <br> Outros parâmetros não utilizados aqui podem servir para requisitar uma quantidade específica memória, uso exclusivo do node, número de tasks (processos mpi), etc. Confira outros parâmetros e os tipos de máquinas de cada fila no manual do usuário.<br> Aproveite para guardar o hostname do node que foi alocado.</b></li><br>
+
+<center>
+<img src="images/srun/1_srun_hostname.png" width="890" height="550"  />
+</center>
+
+<br><li><b>Carregue o anaconda com </b><i>eval "\$(/scratch/cadase/app/anaconda3/bin/conda shell.bash hook)"</i><b>. Neste exemplo iremos utilizar o Devito como exemplo, para tanto carregaremos o ambiente com: </b><i>conda activate devito</i></i><b>.</b></li><br>
+
+<center>
+<img src="images/jupyter/1_anaconda_devito.png" width="890" height="550" />
+</center>
+
+<br><li><b>Inicialize o notebook com: </b><i>jupyter-lab --no-browser --ip=0.0.0.0</i></li><br>
+
+<center>
+<img src="images/jupyter/2_jupyter.png" width="890" height="550" />
+</center>
+
+<br><li><b>Abra um novo terminal e crie um túnel para acessar o notebook, utilize o hostname do node alocado anteriormente:</b> <i>ssh -L 8888:hostname:8888 user@login.sdumont.lncc.br</i></li><br>
+
+<center>
+<img src="images/tunel/1_tunel.png" width="890" height="550" />
+</center>
+
+<br><li><b>Utilize o terminal com a sessão do jupyter notebook aberta para copiar a url e cole no browser como no exemplo abaixo:</b></li><br>
+
+<center>
+<img src="images/jupyter/3_jupyter_browser.png"/>
+</center>
+</ol>
 
 ## sbatch - Submissão de jobs <a name="sbatch"></a>
