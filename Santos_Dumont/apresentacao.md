@@ -33,6 +33,7 @@ diretrizes gerais do nosso projeto (onde ficarão softwares instalados de uso co
 
    - [Screen](#screen)
    - [Vim](#editor)
+   - [SSHFS](#sshfs)
 
 1. [Entendendo as partições dos discos](#particoes)
 
@@ -289,6 +290,34 @@ Trabalhando no ambiente de linha de comando do cluster, muitas vezes será neces
       :set number        #Exibe o número da linha
       :set autoindent    #Ativo o modo de identação automática
       :set shiftwidth=4  #Configura o tamanho da identação
+
+### SSHFS <a name="sshfs"></a>
+
+<ol>
+
+<br><li>Instalando o SSHFS no seu computador:</li><br>
+
+      sudo apt-get install sshfs
+
+<br><li>Criando o diretório que servirá para acessar os dados do SDumont:</li><br>
+
+      sudo mkdir ~/sdumont-fs
+
+<br><li>Estabelecendo a conexão:</li><br>
+
+      sudo sshfs luis.manrique@login.sdumont.lncc.br: ~/sdumont-fs
+
+<br><li>O diretório remoto deve aparecer no Natilus conforme a imagem abaixo:</li><br>
+
+<center>
+<img src="images/sshfs/sshfs.png" width="890" height="450" />
+</center>
+
+<br><li>Desconectando do cluster:</li><br>
+
+      sudo umount ~/sdumont-fs
+
+</ol>
 
 ## Entendendo as partições dos discos <a name="particoes"></a>
 
