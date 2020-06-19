@@ -248,6 +248,45 @@ Para evitar esse tipo de situação, podemos usar a ferramenta Screen ou GNU Scr
 
 ### Vim <a name="editor"></a>
 
+Trabalhando no ambiente de linha de comando do cluster, muitas vezes será necessário abrir arquivos para leitura e eventualmente para edições, dessa forma, se faz necessário ter o conhecimento de algum editor de textos no terminal. Abaixo eu apresento alguns comandos básicos do Vim, um dos editores mais populares do Linux.
+
+      Vim #Comandos básicos
+
+      vim arquivo.txt    #Abre o arquivo.txt, caso não existe ele será criado
+
+
+      Abrir e salvar arquivo
+
+      Esc
+      :w     #Salva o arquivo
+      :q     #Sai do editor
+      :wq!   #Salva e sai do editor
+
+
+      Busca
+
+      /word     #Procura a palavra word de cima para baixo
+      ?word     #Procura a palavra word de baixo para cima
+      /jo[ha]n  #Procura por john ou joan
+      /\< the   #Procura por the, theatre ou then
+
+
+      Substituição
+
+      :%s/old/new/g      #Substitui todas as ocorrência de old por new
+      :%s/old/new/gw     #Substitui todas as ocorrência de old por new com confirmação
+      :2,35s/old/new/g   #Substitui todas as ocorrência de old por new entre as linhas entre 2 e 35
+      :5,$s/old/new/g    #Substitui todas as ocorrência de old por new da linhas 5 até o final do arquivo
+      :%s/^/hello/g      #Insere hello no início de cada linha
+
+
+      Outros
+
+      :syntax on         #Ativa o modo de exibição de cores de sintaxe
+      :set number        #Exibe o número da linha
+      :set autoindent    #Ativo o modo de identação automática
+      :set shiftwidth=4  #Configura o tamanho da identação
+
 ## Entendendo as partições dos discos <a name="particoes"></a>
 
 ## Transferência de dados <a name="transferencia"></a>
