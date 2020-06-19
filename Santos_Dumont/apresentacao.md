@@ -1,3 +1,5 @@
+diretrizes gerais do nosso projeto (onde ficarão softwares instalados de uso comum, comunicação, pontos de contato, suporte, etc.),
+
 <h1 align="center"> Webinar - Cluster Santos Dumont </h1>
 <h2 align="center"> Acesso e submissão de jobs </h2>
    
@@ -14,20 +16,23 @@
 
 1. [Projeto CADASE](#cadase)
 
+   - [Softwares do projeto]
    - [Tempo de computação](#tempo)
    - [Prazo para o uso](#prazo)
    - [Cotas](#cotas)
+   - [Canais de Suporte](#suporte)
 
 1. [Requisitos de acesso](#requisitos)
 
    - [Ativação da conta](#ativacao)
    - [Acesso VPN](#acesso_vpn)
 
-   1. [Recomendações de ferramentas](#recomendacoes)
-      - [Screen](#screen)
-      - [Vim](#editor)
-
 1. [Acessando o Santos Dumont](#acesso)
+
+1. [Recomendação de ferramentas](#recomendacoes)
+
+   - [Screen](#screen)
+   - [Vim](#editor)
 
 1. [Entendendo as partições dos discos](#particoes)
 
@@ -80,7 +85,7 @@
 
 **Breve Histórico**
 
-O supercomputador Santos Dumont (SDumont), adquirido junto a empresa francesa ATOS/BULL, está localizado na sede do Laboratório Nacional de Computação Científica (LNCC), em Petrópolis-RJ, atuando como nó central (Tier-0) do Sistema Nacional de Processamento de Alto Desempenho - SINAPAD. 
+O supercomputador Santos Dumont (SDumont), adquirido junto a empresa francesa ATOS/BULL, está localizado na sede do Laboratório Nacional de Computação Científica (LNCC), em Petrópolis-RJ, atuando como nó central (Tier-0) do Sistema Nacional de Processamento de Alto Desempenho - SINAPAD.
 
 A primeira versão do SDumont (2015), chamada de "SDumont Base", possuía um total de 18.424 núcleos de CPU, distribuídos em 758 nós computacionais utilizando a tecnologia BullX B700. <br> No quarto trimestre de 2019 o SDumont recebeu uma expansão computacional, composta da tecnologia BullSequana X, que aumentou o poder computacional de 1,1 Petaflops para 5,1 Petaflops. Após essa expansão o SDumont passou a contar com um total de 34.688 núcleos de CPU, distribuídos em 1132 nós computacionais.
 
@@ -179,6 +184,51 @@ A primeira versão do SDumont (2015), chamada de "SDumont Base", possuía um tot
 </center>
 
 </ol>
+
+##[Recomendação de ferramentas <a name="recomendacoes"></a>
+
+### Screen <a name="screen"></a>
+
+Quando estamos trabalhando em tarefas de longa duração em máquinas remotas, alguns problemas podem ocorrer: queda na conexão de internet; desconexão da sessão ssh; travamentos, entre outros. Quando algum desses problemas ocorre, o nosso trabalho é perdido.
+
+Para evitar esse tipo de situação, podemos usar a ferramenta Screen ou GNU Screen, que é um multiplexador de terminais, ele serve para que possamos iniciar uma sessão do screen dentro do terminal convencional, e nele criamos terminais virtuais, que podem continuar rodando mesmo quando estamos deconectados. Podemos deixar algo rodando no terminal do cluster, desconectar e voltar algum tempo depois para retomar do mesmo ponto em que paramos.
+
+    screen #Comandos básicos
+
+    #Lista as sessões
+    screen -ls
+
+    #Cria uma nova sessão com o nome "minha-sessao"
+    screen -S "minha-sessao"
+
+    #Se vincula a uma sessão existente de nome "minha-sessao"
+    screen -x minha-sessao
+
+    Comandos dentro do screen
+
+    Ctrl+A -> c      #Cria um novo terminal
+
+    Ctrl+A -> "      #Lista todos os terminais da sessão
+
+    Ctrl+A -> 0      #Alterna para o terminal 0
+
+    Ctrl+A -> A      #Renomeia o terminal
+
+    Ctrl+A -> S      #Divide a tela horizontalmente em duas regiões
+
+    Ctrl+A -> |      #Divide a tela verticalmente em duas regiões
+
+    Ctrl+A -> tab    #Alterna o foco nas regiões
+
+    Ctrl+A -> X      #Fecha a região em foco
+
+    Ctrl+A -> Q      #Fecha todas as regiões menos a que tem o foco
+
+    Ctrl+A -> Ctrl+a #Alterna o terminal
+
+    Ctrl+A -> d      #Desvincula o seu terminal da sessão
+
+### Vim <a name="editor"></a>
 
 ## Entendendo as partições dos discos <a name="particoes"></a>
 
