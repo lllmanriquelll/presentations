@@ -16,7 +16,7 @@ diretrizes gerais do nosso projeto (onde ficarão softwares instalados de uso co
 
 1. [Projeto CADASE](#cadase)
 
-   - [Softwares do projeto]
+   - [Softwares do projeto](#software)
    - [Tempo de computação](#tempo)
    - [Prazo para o uso](#prazo)
    - [Cotas](#cotas)
@@ -165,11 +165,23 @@ A primeira versão do SDumont (2015), chamada de "SDumont Base", possuía um tot
 
 ### Filas <a name="filas"></a>
 
-Os equipamentos do cluster Santos Dumont listados acima representam um valioso recurso computacional, que é compartilhado por diversos grupos de pequisas que possuem vínculo com o Laboratório Nacional de Computação Científica e, para manter os recursos disponíveis para todos os pesquisadores de forma consistente e justa, foi implementado um sistema de filas.
+Os equipamentos do cluster Santos Dumont listados acima representam um valioso recurso computacional, que é compartilhado por diversos grupos de pequisas que possuem vínculo com o Laboratório Nacional de Computação Científica. Para manter os recursos disponíveis para todos os pesquisadores de forma consistente e justa, foi implementado um sistema de filas.
 
-Em um computador não compartilhado o usuário define as prioridades de execução e pode rodar os programas diretamente em seu terminal ou gerenciador de janelas, no caso do SDumont, o usuário precisa criar um script e submetê-lo para uma fila (SLURM), que vai determinar em que momento o código entrará em execução, essa etapa extra será detalhada mais a frente.
+Em um computador não compartilhado, o usuário que define as prioridades de execução e pode rodar os programas diretamente em seu terminal ou gerenciador de janelas, no caso do SDumont, o usuário precisa criar um script e submetê-lo para uma fila (SLURM), que vai determinar em que momento o código entrará em execução, essa etapa extra será detalhada mais a frente.
 
 ## Projeto CADASE <a name="cadase"></a>
+
+### Softwares do projeto <a name="software"></a>
+
+Os softwares do projeto estão localizados no diretório _/scratch/cadase/app_
+
+### Tempo de computação <a name="tempo"></a>
+
+### Prazo para o uso <a name="prazo"></a>
+
+### Cotas <a name="cotas"></a>
+
+### Canais de Suporte <a name="suporte"></a>
 
 ## Requisitos de acesso <a name="requisitos"></a>
 
@@ -191,7 +203,7 @@ Em um computador não compartilhado o usuário define as prioridades de execuç�
 
 </ol>
 
-##[Recomendação de ferramentas <a name="recomendacoes"></a>
+## Recomendação de ferramentas <a name="recomendacoes"></a>
 
 ### Screen <a name="screen"></a>
 
