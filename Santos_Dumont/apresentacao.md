@@ -293,6 +293,10 @@ Trabalhando no ambiente de linha de comando do cluster, muitas vezes será neces
 
 ### SSHFS <a name="sshfs"></a>
 
+O SSHFS (Secure Shell FileSystem), é uma ferramenta que permite os usuários acessarem de forma segura um sistema de arquivos remoto, no exemplo a seguir iremos acessar os diretórios da sua conta no SDumont. Esse método é considerado seguro pois a comunicação se dá através do protocolo SSH.
+
+Uma vez estabelecida a conexão, é possível utilizar ferramentas da sua interface gráfica para manipular os arquivos.
+
 <ol>
 
 <br><li>Instalando o SSHFS no seu computador:</li><br>
