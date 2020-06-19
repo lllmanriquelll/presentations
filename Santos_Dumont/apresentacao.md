@@ -252,7 +252,7 @@ Trabalhando no ambiente de linha de comando do cluster, muitas vezes será neces
 
       Vim #Comandos básicos
 
-      vim arquivo.txt    #Abre o arquivo.txt, caso não existe ele será criado
+      vim arquivo.txt    #Abre o arquivo.txt, caso não ele não exista, um novo será criado
 
 
       Abrir e salvar arquivo
@@ -265,6 +265,7 @@ Trabalhando no ambiente de linha de comando do cluster, muitas vezes será neces
 
       Busca
 
+      Esc
       /word     #Procura a palavra word de cima para baixo
       ?word     #Procura a palavra word de baixo para cima
       /jo[ha]n  #Procura por john ou joan
@@ -273,6 +274,7 @@ Trabalhando no ambiente de linha de comando do cluster, muitas vezes será neces
 
       Substituição
 
+      Esc
       :%s/old/new/g      #Substitui todas as ocorrência de old por new
       :%s/old/new/gw     #Substitui todas as ocorrência de old por new com confirmação
       :2,35s/old/new/g   #Substitui todas as ocorrência de old por new entre as linhas entre 2 e 35
@@ -282,6 +284,7 @@ Trabalhando no ambiente de linha de comando do cluster, muitas vezes será neces
 
       Outros
 
+      Esc
       :syntax on         #Ativa o modo de exibição de cores de sintaxe
       :set number        #Exibe o número da linha
       :set autoindent    #Ativo o modo de identação automática
