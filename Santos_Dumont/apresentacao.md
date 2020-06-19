@@ -310,7 +310,7 @@ Trabalhando no ambiente de linha de comando do cluster, muitas vezes será neces
 <br><li>O diretório remoto deve aparecer no Natilus conforme a imagem abaixo:</li><br>
 
 <center>
-<img src="images/sshfs/sshfs.png" width="890" height="450" />
+<img src="images/sshfs/1_sshfs.png" width="890" height="450" />
 </center>
 
 <br><li>Desconectando do cluster:</li><br>
