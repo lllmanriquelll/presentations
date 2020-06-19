@@ -165,6 +165,10 @@ A primeira versão do SDumont (2015), chamada de "SDumont Base", possuía um tot
 
 ### Filas <a name="filas"></a>
 
+Os equipamentos do cluster Santos Dumont listados acima representam um valioso recurso computacional, que é compartilhado por diversos grupos de pequisas que possuem vínculo com o Laboratório Nacional de Computação Científica e, para manter os recursos disponíveis para todos os pesquisadores de forma consistente e justa, foi implementado um sistema de filas.
+
+Em um computador não compartilhado o usuário define as prioridades de execução e pode rodar os programas diretamente em seu terminal ou gerenciador de janelas, no caso do SDumont, o usuário precisa criar um script e submetê-lo para uma fila (SLURM), que vai determinar em que momento o código entrará em execução, essa etapa extra será detalhada mais a frente.
+
 ## Projeto CADASE <a name="cadase"></a>
 
 ## Requisitos de acesso <a name="requisitos"></a>
