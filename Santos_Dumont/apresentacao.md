@@ -92,6 +92,7 @@ A primeira versão do SDumont (2015), chamada de "SDumont Base", possuía um tot
 
 ### Hardware <a name="hardware"></a>
 
+<center>
 <div align="center">
 <table class="tg">
 <thead>
@@ -163,6 +164,7 @@ A primeira versão do SDumont (2015), chamada de "SDumont Base", possuía um tot
 </tbody>
 </table>
 </div>
+</center>
 
 ### Filas <a name="filas"></a>
 
@@ -174,7 +176,15 @@ Em um computador não compartilhado, o usuário que define as prioridades de exe
 
 ### Softwares do projeto <a name="software"></a>
 
-Os softwares do projeto estão localizados no diretório _/scratch/cadase/app_
+Os softwares do projeto estão localizados no diretório **_/scratch/cadase/app_**
+
+      anaconda3
+      devito
+      firedrake
+      htop
+      openfoam
+      scripts
+      singularity
 
 ### Tempo de computação <a name="tempo"></a>
 
