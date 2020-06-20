@@ -16,11 +16,11 @@ diretrizes gerais do nosso projeto (onde ficarão softwares instalados de uso co
 
 1. [Projeto CADASE](#cadase)
 
-   - [Softwares do projeto](#software)
-   - [Tempo de computação](#tempo)
    - [Prazo para o uso](#prazo)
-   - [Cotas](#cotas)
+   - [Tempo de computação](#tempo)
+   - [Cotas de disco](#cotas)
    - [Canais de Suporte](#suporte)
+   - [Softwares do projeto](#software)
 
 1. [Requisitos de acesso](#requisitos)
 
@@ -92,7 +92,6 @@ A primeira versão do SDumont (2015), chamada de "SDumont Base", possuía um tot
 
 ### Hardware <a name="hardware"></a>
 
-<center>
 <div align="center">
 <table class="tg">
 <thead>
@@ -164,7 +163,6 @@ A primeira versão do SDumont (2015), chamada de "SDumont Base", possuía um tot
 </tbody>
 </table>
 </div>
-</center>
 
 ### Filas <a name="filas"></a>
 
@@ -173,6 +171,30 @@ Os equipamentos do cluster Santos Dumont listados acima representam um valioso r
 Em um computador não compartilhado, o usuário que define as prioridades de execução e pode rodar os programas diretamente em seu terminal ou gerenciador de janelas, no caso do SDumont, o usuário precisa criar um script e submetê-lo para uma fila (SLURM), que vai determinar em que momento o código entrará em execução, essa etapa extra será detalhada mais a frente.
 
 ## Projeto CADASE <a name="cadase"></a>
+
+### Prazo para o uso <a name="prazo"></a>
+
+Prazo de 6 meses a contar a partir de junho de 2020.
+
+### Tempo de computação <a name="tempo"></a>
+
+Unidades de Alocação (UAs) ~5.000.000
+
+i) 1,0 UA é igual a 1 (uma) hora de processamento em 1 (um) núcleo de
+processamento do nó com CPU
+ii) Uma hora de processamento em 1 (um) núcleo dos nós com CPU+GPU
+corresponde à 1,5 UA
+iii) Uma hora de processamento em 1 (um) núcleo de MESCA2 ou GDL-IA
+corresponde à 2,0 UAs
+
+Com essa cota de processamento, nós poderíamos utilizar 45 nós CPU com ocupação de todos os cores 24 horas por dia e não chegaríamos ao limite antes do prazo de seis meses, portanto, utilizem o recurso sempre que possível.
+
+### Cotas de disco <a name="cotas"></a>
+
+O espaço em disco é limitado, temos acesso a duas partições com cotas:
+
+- /prj 25TB (a confirmar)
+- /scracth 25TB
 
 ### Softwares do projeto <a name="software"></a>
 
@@ -183,16 +205,22 @@ Os softwares do projeto estão localizados no diretório **_/scratch/cadase/app_
       firedrake
       htop
       openfoam
-      scripts
-      singularity
-
-### Tempo de computação <a name="tempo"></a>
-
-### Prazo para o uso <a name="prazo"></a>
-
-### Cotas <a name="cotas"></a>
+      scripts (exemplos do slurm e carregamento dos softwares do projeto)
+      singularity (ainda não está funcional)
 
 ### Canais de Suporte <a name="suporte"></a>
+
+Lista de e-mail do google groups
+
+- cadase-members@googlegroups.com
+
+Canal Slack
+
+- cadasemembers.slack.com
+
+Help Desk do LNCC
+
+- helpdesk-sdumont@lncc.br
 
 ## Requisitos de acesso <a name="requisitos"></a>
 
