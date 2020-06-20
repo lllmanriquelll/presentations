@@ -1,5 +1,3 @@
-diretrizes gerais do nosso projeto (onde ficarão softwares instalados de uso comum, comunicação, pontos de contato, suporte, etc.),
-
 <h1 align="center"> Webinar - Cluster Santos Dumont </h1>
 <h2 align="center"> Acesso e submissão de jobs </h2>
    
@@ -83,7 +81,7 @@ diretrizes gerais do nosso projeto (onde ficarão softwares instalados de uso co
    - [Rodando um código C com openMP](#)
    - [Rodando um código C com MPI](#)
 
-## Introdução <a align="center" name="introducao"></a>
+## Introdução <a name="introducao"></a>
 
 **Breve Histórico**
 
@@ -171,6 +169,10 @@ Os equipamentos do cluster Santos Dumont listados acima representam um valioso r
 
 Em um computador não compartilhado, o usuário que define as prioridades de execução e pode rodar os programas diretamente em seu terminal ou gerenciador de janelas, no caso do SDumont, o usuário precisa criar um script e submetê-lo para uma fila (SLURM), que vai determinar em que momento o código entrará em execução, essa etapa extra será detalhada mais a frente.
 
+---
+
+---
+
 ## Projeto CADASE <a name="cadase"></a>
 
 ### Prazo para o uso <a name="prazo"></a>
@@ -227,6 +229,10 @@ Help Desk do LNCC
 
 - helpdesk-sdumont@lncc.br
 
+---
+
+---
+
 ## Requisitos de acesso <a name="requisitos"></a>
 
 ### Ativação da conta <a name="ativacao"></a>
@@ -273,6 +279,10 @@ Para adicionar a senha do grupo, selecione <b>Store password ...</b>.</li><br>
 </ol>
 
 ### SSH Client <a name="client"></a>
+
+---
+
+---
 
 ## Acessando o Santos Dumont <a name="acesso"></a>
 
