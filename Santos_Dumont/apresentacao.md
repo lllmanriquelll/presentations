@@ -83,7 +83,7 @@ diretrizes gerais do nosso projeto (onde ficarão softwares instalados de uso co
    - [Rodando um código C com openMP](#)
    - [Rodando um código C com MPI](#)
 
-## Introdução <a name="introducao"></a>
+## Introdução <a align="center" name="introducao"></a>
 
 **Breve Histórico**
 
