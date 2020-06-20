@@ -213,7 +213,7 @@ Segue abaixo a lista de sotwares instalados até o momento:
       htop
       openfoam
       scripts (exemplos do slurm e carregamento dos softwares do projeto)
-      singularity (ainda não está funcional)
+      singularity (ainda não está funcional, helpdesk já foi acionado)
 
 ### Canais de Suporte <a name="suporte"></a>
 
@@ -244,7 +244,6 @@ Entrar em contato com a equipe do Helpdesk do LNCC através do telefone (24) 223
 Configurar um cliente VPN, abaixo segue um exemplo no ambiente Ubuntu:
 
 <ol>
-
 <br><li>Abra o menu de configuração no canto superior direito.</li><br>
 
 <center>
