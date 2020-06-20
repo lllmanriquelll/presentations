@@ -26,6 +26,7 @@ diretrizes gerais do nosso projeto (onde ficarão softwares instalados de uso co
 
    - [Ativação da conta](#ativacao)
    - [Acesso VPN](#acesso_vpn)
+   - [SSH Client](#client)
 
 1. [Acessando o Santos Dumont](#acesso)
 
@@ -189,7 +190,7 @@ Unidades de Alocação (UAs) ~5.000.000
 - Uma hora de processamento em 1 (um) núcleo de MESCA2 ou GDL-IA
   corresponde à 2,0 UAs
 
-Com essa cota de processamento, nós poderíamos utilizar 45 nós CPU com ocupação de todos os cores 24 horas por dia e não chegaríamos ao limite antes do prazo de seis meses, portanto, utilizem o recurso sempre que possível.
+Com essa cota de processamento, nós poderíamos utilizar 45 nós CPU com ocupação de todos os cores, 24 horas por dia, e não chegaríamos ao limite antes do prazo de seis meses, portanto, utilizem o recurso sempre que possível.
 
 ### Cotas de disco <a name="cotas"></a>
 
@@ -201,6 +202,8 @@ O espaço em disco é limitado, temos acesso a duas partições com cotas:
 ### Softwares do projeto <a name="software"></a>
 
 Os softwares do projeto estão localizados no diretório **_/scratch/cadase/app_**
+
+Segue abaixo a lista de sotwares instalados até o momento:
 
       anaconda3
       devito
@@ -226,11 +229,56 @@ Help Desk do LNCC
 
 ## Requisitos de acesso <a name="requisitos"></a>
 
+### Ativação da conta <a name="ativacao"></a>
+
+Entrar em contato com a equipe do Helpdesk do LNCC através do telefone (24) 2233-6050 e informar o número do seu atendimento, localizado no campo "assunto" da mensagem de e-mail confirmando a criação da sua conta.
+
+### Acesso VPN <a name="acesso_vpn"></a>
+
+Configurar um cliente VPN, abaixo segue um exemplo no ambiente Ubuntu:
+
+<ol>
+
+<br><li>Abra o menu de configuração no canto superior direito.</li><br>
+
+<center>
+<img src="images/vpn/1_vpn.png" width="890" height="450" />
+</center>
+
+<br><li>Clique no símbolo <b>+</b> para adicionar uma nova conexão.</li><br>
+
+<center>
+<img src="images/vpn/2_vpn.png" width="890" height="450" />
+</center>
+
+<br><li>Selecione o <b>Cisco Compatible VPN</b>.</li><br>
+
+<center>
+<img src="images/vpn/3_vpn.png" width="890" height="450" />
+</center>
+
+<br><li>Adicione as credenciais enviadas pelo helpdesk do LNCC.
+Para adicionar a senha do grupo, selecione <b>Store password ...</b>.</li><br>
+
+<center>
+<img src="images/vpn/4_vpn.png" width="890" height="450" />
+</center>
+
+<br><li>Selecione connect para estabelecer a conexão VPN.</li><br>
+
+<center>
+<img src="images/vpn/5_vpn.png" width="890" height="450" />
+</center>
+
+</ol>
+
+### SSH Client <a name="client"></a>
+
 ## Acessando o Santos Dumont <a name="acesso"></a>
 
 <ol>
 
-<br><li>Se conecte à rede VPN utilizando o manual do Santos Dumont enviado por e-mail pelo helpdesk.</li><br>
+<br><li>Se conecte à rede VPN.</li><br>
 
 <center>
 <img src="images/acesso/1_vpn.png" width="890" height="450" />
