@@ -242,32 +242,32 @@ Configurar um cliente VPN, abaixo segue um exemplo no ambiente Ubuntu:
 <br><li>Abra o menu de configuração no canto superior direito.</li><br>
 
 <center>
-<img src="images/vpn/1_vpn.png" width="890" height="450" />
+<img src="images/vpn/1_vpn.png" width="460" height="450" />
 </center>
 
 <br><li>Clique no símbolo <b>+</b> para adicionar uma nova conexão.</li><br>
 
 <center>
-<img src="images/vpn/2_vpn.png" width="890" height="450" />
+<img src="images/vpn/2_vpn.png" width="650" height="450" />
 </center>
 
 <br><li>Selecione o <b>Cisco Compatible VPN</b>.</li><br>
 
 <center>
-<img src="images/vpn/3_vpn.png" width="890" height="450" />
+<img src="images/vpn/3_vpn.png" width="650" height="450" />
 </center>
 
 <br><li>Adicione as credenciais enviadas pelo helpdesk do LNCC.
 Para adicionar a senha do grupo, selecione <b>Store password ...</b>.</li><br>
 
 <center>
-<img src="images/vpn/4_vpn.png" width="890" height="450" />
+<img src="images/vpn/4_vpn.png" width="650" height="450" />
 </center>
 
 <br><li>Selecione connect para estabelecer a conexão VPN.</li><br>
 
 <center>
-<img src="images/vpn/5_vpn.png" width="890" height="450" />
+<img src="images/vpn/5_vpn.png" width="460" height="450" />
 </center>
 
 </ol>
