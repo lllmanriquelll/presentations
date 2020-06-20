@@ -302,6 +302,10 @@ Para adicionar a senha do grupo, selecione <b>Store password ...</b>.</li><br>
 
 </ol>
 
+---
+
+---
+
 ## Recomendação de ferramentas <a name="recomendacoes"></a>
 
 ### Screen <a name="screen"></a>
@@ -421,21 +425,57 @@ Uma vez estabelecida a conexão, é possível utilizar ferramentas da sua interf
 
 </ol>
 
+---
+
+---
+
 ## Entendendo as partições dos discos <a name="particoes"></a>
+
+---
+
+---
 
 ## Transferência de dados <a name="transferencia"></a>
 
+---
+
+---
+
 ## Module <a name="module"></a>
+
+---
+
+---
 
 ## Compilando código C/C++ <a name="compilacao1"></a>
 
+---
+
+---
+
 ## Compilando código C/C++ com openMP e openMPI <a name="compilacao2"></a>
+
+---
+
+---
 
 ## SLURM <a name="slurm"></a>
 
+---
+
+---
+
 ## srun - Shell em modo interativo e jupyter notebook <a name="srun"></a>
 
+---
+
+---
+
 ### Rodando um script em python
+
+---
+
+---
 
 ### Acessado o jupyter notebook remotamente <a name="jupyter"></a>
 
@@ -472,4 +512,12 @@ Uma vez estabelecida a conexão, é possível utilizar ferramentas da sua interf
 </center>
 </ol>
 
+---
+
+---
+
 ## sbatch - Submissão de jobs <a name="sbatch"></a>
+
+---
+
+---
