@@ -19,8 +19,8 @@ diretrizes gerais do nosso projeto (onde ficarão softwares instalados de uso co
    - [Prazo para o uso](#prazo)
    - [Tempo de computação](#tempo)
    - [Cotas de disco](#cotas)
-   - [Canais de Suporte](#suporte)
    - [Softwares do projeto](#software)
+   - [Canais de Suporte](#suporte)
 
 1. [Requisitos de acesso](#requisitos)
 
@@ -180,12 +180,14 @@ Prazo de 6 meses a contar a partir de junho de 2020.
 
 Unidades de Alocação (UAs) ~5.000.000
 
-i) 1,0 UA é igual a 1 (uma) hora de processamento em 1 (um) núcleo de
-processamento do nó com CPU
-ii) Uma hora de processamento em 1 (um) núcleo dos nós com CPU+GPU
-corresponde à 1,5 UA
-iii) Uma hora de processamento em 1 (um) núcleo de MESCA2 ou GDL-IA
-corresponde à 2,0 UAs
+- 1,0 UA é igual a 1 (uma) hora de processamento em 1 (um) núcleo de
+  processamento do nó com CPU
+
+- Uma hora de processamento em 1 (um) núcleo dos nós com CPU+GPU
+  corresponde à 1,5 UA
+
+- Uma hora de processamento em 1 (um) núcleo de MESCA2 ou GDL-IA
+  corresponde à 2,0 UAs
 
 Com essa cota de processamento, nós poderíamos utilizar 45 nós CPU com ocupação de todos os cores 24 horas por dia e não chegaríamos ao limite antes do prazo de seis meses, portanto, utilizem o recurso sempre que possível.
 
@@ -216,7 +218,7 @@ Lista de e-mail do google groups
 
 Canal Slack
 
-- cadasemembers.slack.com
+- http://cadasemembers.slack.com
 
 Help Desk do LNCC
 
