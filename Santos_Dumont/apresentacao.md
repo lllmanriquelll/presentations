@@ -456,16 +456,16 @@ Uma sugestão da equipe do LNCC é que nós possamos estabelecer uma conexão di
 ### Enviando arquivos <a name="envio"></a>
 
 Para enviar arquivos ou diretórios para o SDumont, utilize o exemplo abaixo:
-  
- # rsync options source destination
+
+      # rsync options source destination
 
       rsync -av my_local_file_or_dir user@login.sdumont.lncc.br:/prj/cadase/user/my_destination_dir/
 
 ### Recebendo arquivos <a name="recebimento"></a>
 
 Para receber arquivos ou diretórios do SDumont, utilize o exemplo abaixo:
-  
- # rsync options source destination
+
+      # rsync options source destination
 
       rsync -av user@login.sdumont.lncc.br:/prj/cadase/user/my_remote_file_or_dir /home/user/my_local_destination
 
