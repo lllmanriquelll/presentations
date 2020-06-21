@@ -455,6 +455,124 @@ Uma sugestão da equipe do LNCC é que nós possamos estabelecer uma conexão di
 Uma outra opção que pode ser utilizada por aqueles que possuem uma conta @usp ou acesso ao google drive ilimitado, é o uso do rclone. Através desse programa é possível sincronizar o seu google drive e utilizá-lo para fazer cópias do seu arquivo diretamente do terminal do SDumont.
 Abaixo eu mostro um passo a passo de como instalar e configurar o Rclone + Google Drive.
 
+<ul>
+
+<li>Faça login no SDumont e Instale o rclone copiando e colando os comandos abaixo no seu terminal:</li>
+
+      cd
+      wget https://downloads.rclone.org/rclone-current-linux-amd64.zip
+      unzip rclone-current-linux-amd64.zip
+      mv rclone-*-linux-amd64 rclone
+
+      cp ~/.bashrc ~/.bashrc_bkp
+      echo "alias rclone=~/rclone/rclone" >> ~/.bashrc
+      source ~/.bashrc
+
+<li>Configurando o rclone:</li>
+
+      rclone config
+
+      No remotes found - make a new one
+      n) New remote
+      s) Set configuration password
+      q) Quit config
+      n/s/q> n
+
+      name> gdrive
+
+      Storage> drive
+
+      Google Application Client Id
+      Setting your own is recommended.
+      See https://rclone.org/drive/#making-your-own-client-id for how to create your own.
+      If you leave this blank, it will use an internal key which is low performance.
+      Enter a string value. Press Enter for the default ("").
+      client_id>
+      Google Application Client Secret
+      Setting your own is recommended.
+      Enter a string value. Press Enter for the default ("").
+      client_secret>
+
+      scope> 1
+
+      Enter a string value. Press Enter for the default ("").
+      root_folder_id>
+
+      Service Account Credentials JSON file path
+      Leave blank normally.
+      Needed only if you want use SA instead of interactive login.
+      Enter a string value. Press Enter for the default ("").
+      service_account_file>
+
+      Edit advanced config? (y/n)
+      y) Yes
+      n) No (default)
+      y/n> n
+
+      Remote config
+      Use auto config?
+      * Say Y if not sure
+      * Say N if you are working on a remote or headless machine
+      y) Yes (default)
+      n) No
+      y/n> y
+
+<li>Não feche a janela atual, abra um novo terminal no seu computador e digite:</li>
+
+      ssh -L 53682:localhost:53682 luis.manrique@login.sdumont.lncc.br
+
+      #Verifique se o nó de login é o mesmo em que a url foi gerada, caso não seja, saia da sessão e tente fazer o "ssh -L" novamente
+
+<li>Volte para a janela anterior, copie a url e cole no seu browser. <br> Autorize a conta utilizando o seu e-mail @usp.br. Feche o browser e a janela com o túnel "ssh -L"</li>
+
+<li>Volte para a janela do rclone para terminar a configuração</li>
+
+      Configure this as a team drive?
+      y) Yes
+      n) No (default)
+      y/n> n
+
+      y) Yes this is OK (default)
+      e) Edit this remote
+      d) Delete this remote
+      y/e/d> y
+
+
+      Current remotes:
+
+      Name                 Type
+      ====                 ====
+      gdrive               drive
+
+      e) Edit existing remote
+      n) New remote
+      d) Delete remote
+      r) Rename remote
+      c) Copy remote
+      s) Set configuration password
+      q) Quit config
+      e/n/d/r/c/s/q> q
+
+**Comandos básicos do rclone**
+
+      [luis.manrique@sdumont11 ~]$ rclone listremotes
+      gdrive:
+
+      [luis.manrique@sdumont11 ~]$ rclone mkdir gdrive:sdumont
+
+      [luis.manrique@sdumont11 ~]$ rclone lsd gdrive:
+                -1 2020-03-31 10:56:53        -1 Colab Notebooks
+                -1 2020-05-18 11:34:38        -1 Contas
+                -1 2020-05-04 08:19:52        -1 Notas Reuniões RCGI
+                -1 2020-05-26 09:14:28        -1 RCGI - Documentos
+                -1 2020-06-21 00:09:40        -1 sdumont
+
+      [luis.manrique@sdumont11 ~]$ rclone copy --progress /scratch/cadase/app/devito gdrive:sdumont/
+
+      [luis.manrique@sdumont11 ~]$ rclone delete gdrive:sdumont/
+
+</ul>
+
 ---
 
 ---
