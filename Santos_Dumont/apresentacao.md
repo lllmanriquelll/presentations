@@ -44,6 +44,7 @@
 
    - [Enviando arquivos](#envio)
    - [Recebendo arquivos](#recebimento)
+   - [rclone](#rclone)
 
 1. [Module](#module)
 
@@ -452,12 +453,34 @@ Utilizamos uma conexão VPN para conseguir acessar o nó de login do Santos Dumo
 Os dados enviados e recebidos através da VPN devem ser encriptados, por essa razão, a taxa de transferência é menor do que a nossa conexão pode alcançar.
 Uma sugestão da equipe do LNCC é que nós possamos estabelecer uma conexão direta entre o cluster e algum IP público que sirva de repositório de dados, caso você possua um acesso desse tipo, prefira fazer upload dos dados diretamente do cluster para o IP público com o rsync e download utilizando o wget.
 
-Uma outra opção que pode ser utilizada por aqueles que possuem uma conta @usp ou acesso ao google drive ilimitado, é o uso do rclone. Através desse programa é possível sincronizar o seu google drive e utilizá-lo para fazer cópias do seu arquivo diretamente do terminal do SDumont.
+### Enviando arquivos <a name="envio"></a>
+
+Para enviar arquivos ou diretórios para o SDumont, utilize o exemplo abaixo:
+  
+ # rsync options source destination
+
+      rsync -av my_local_file_or_dir user@login.sdumont.lncc.br:/prj/cadase/user/my_destination_dir/
+
+### Recebendo arquivos <a name="recebimento"></a>
+
+Para receber arquivos ou diretórios do SDumont, utilize o exemplo abaixo:
+  
+ # rsync options source destination
+
+      rsync -av user@login.sdumont.lncc.br:/prj/cadase/user/my_remote_file_or_dir /home/user/my_local_destination
+
+Caso você tenha utilizado o rsync para enviar seus dados para um servidor com IP público, o download tanto na sua máquina local quanto no SDumont pode ser feito utilizando o wget. Exemplo:
+
+       wget http://my_ip/files/my_remote_file
+
+### rclone <a name="rclone"></a>
+
+Uma outra opção que pode ser utilizada por aqueles que possuem uma conta @usp ou acesso ao google drive ilimitado, é o uso do rclone. Através desse programa é possível sincronizar o seu google drive e utilizá-lo para fazer cópias dos seus arquivos diretamente do terminal do SDumont.
 Abaixo eu mostro um passo a passo de como instalar e configurar o Rclone + Google Drive.
 
-<ul>
+<ol>
 
-<li>Faça login no SDumont e Instale o rclone copiando e colando os comandos abaixo no seu terminal:</li>
+<br><li>Faça login no SDumont e Instale o rclone copiando e colando os comandos abaixo no seu terminal:</li>
 
       cd
       wget https://downloads.rclone.org/rclone-current-linux-amd64.zip
@@ -468,7 +491,7 @@ Abaixo eu mostro um passo a passo de como instalar e configurar o Rclone + Googl
       echo "alias rclone=~/rclone/rclone" >> ~/.bashrc
       source ~/.bashrc
 
-<li>Configurando o rclone:</li>
+<br><li>Configurando o rclone:</li>
 
       rclone config
 
@@ -517,15 +540,15 @@ Abaixo eu mostro um passo a passo de como instalar e configurar o Rclone + Googl
       n) No
       y/n> y
 
-<li>Não feche a janela atual, abra um novo terminal no seu computador e digite:</li>
+<br><li>Não feche a janela atual, abra um novo terminal no seu computador e digite:</li>
 
       ssh -L 53682:localhost:53682 luis.manrique@login.sdumont.lncc.br
 
       #Verifique se o nó de login é o mesmo em que a url foi gerada, caso não seja, saia da sessão e tente fazer o "ssh -L" novamente
 
-<li>Volte para a janela anterior, copie a url e cole no seu browser. <br> Autorize a conta utilizando o seu e-mail @usp.br. Feche o browser e a janela com o túnel "ssh -L"</li>
+<br><li>Volte para a janela anterior, copie a url e cole no seu browser. <br> Autorize a conta utilizando o seu e-mail @usp.br. Feche o browser e a janela com o túnel "ssh -L"</li>
 
-<li>Volte para a janela do rclone para terminar a configuração</li>
+<br><li>Volte para a janela do rclone para terminar a configuração</li>
 
       Configure this as a team drive?
       y) Yes
@@ -571,7 +594,7 @@ Abaixo eu mostro um passo a passo de como instalar e configurar o Rclone + Googl
 
       [luis.manrique@sdumont11 ~]$ rclone delete gdrive:sdumont/
 
-</ul>
+</ol>
 
 ---
 
