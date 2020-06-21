@@ -279,6 +279,11 @@ Para adicionar a senha do grupo, selecione <b>Store password ...</b>.</li><br>
 
 ### SSH Client <a name="client"></a>
 
+O acesso ao cluster SDumont se dá através de conexão SSH. Os sistemas operacionais Linux e macOS já possuem um cliente instalado por padrão.
+Abaixo segue o link para a instalação do cliente SSH PuTTY no Windows:
+
+      https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
+
 ---
 
 ---
@@ -430,11 +435,25 @@ Uma vez estabelecida a conexão, é possível utilizar ferramentas da sua interf
 
 ## Entendendo as partições dos discos <a name="particoes"></a>
 
+Nós temos duas partições principais: /prj e /scratch.
+
+O /prj é o local em que os diretórios \$HOME de todos os usuários do projeto cadase são armazenados, ex: /prj/cadasa/user.
+Esse diretório é compartilhado entre os nós de login (NFS), mas não deve ser utilizado para a submissão de jobs, os nós de processamento não o enxergam. Os dados não tem um prazo pré-determinado para serem excluídos, nele nós devemos armazenar dados permanentes.
+
+O /scratch é o local em que os usuários do projeto devem copiar os dados que serão utlizados na submissão de jobs, sejam eles scripts, datasets e até mesmo as biliotecas e programas instalados. Cada usuário possui um diretório /scratch/cadase/user, e esse diretório é compartilhado entre os nós de processamento (Lustre), os arquivos nesse diretório são apagados após 60 dias sem serem modificados, por essa razão, copie sempre para o \$HOME os dados que devem ser preservados.
+
 ---
 
 ---
 
 ## Transferência de dados <a name="transferencia"></a>
+
+Utilizamos uma conexão VPN para conseguir acessar o nó de login do Santos Dumont, essa conexão deve ser mantida por todo o tempo em que estivermos conectados via SSH, transferindo dados por rsync ou scp.
+Os dados enviados e recebidos através da VPN devem ser encriptados, por essa razão, a taxa de transferência é menor do que a nossa conexão pode alcançar.
+Uma sugestão da equipe do LNCC é que nós possamos estabelecer uma conexão direta entre o cluster e algum IP público que sirva de repositório de dados, caso você possua um acesso desse tipo, prefira fazer upload dos dados diretamente do cluster para o IP público com o rsync e download utilizando o wget.
+
+Uma outra opção que pode ser utilizada por aqueles que possuem uma conta @usp ou acesso ao google drive ilimitado, é o uso do rclone. Através desse programa é possível sincronizar o seu google drive e utilizá-lo para fazer cópias do seu arquivo diretamente do terminal do SDumont.
+Abaixo eu mostro um passo a passo de como instalar e configurar o Rclone + Google Drive.
 
 ---
 
