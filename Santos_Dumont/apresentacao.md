@@ -148,7 +148,7 @@ Os equipamentos do cluster Santos Dumont listados acima representam um valioso r
 
 Em um computador não compartilhado, o usuário que define as prioridades de execução e pode rodar os programas diretamente em seu terminal ou gerenciador de janelas, no caso do SDumont, o usuário precisa criar um script e submetê-lo para uma fila (SLURM), que vai determinar em que momento o código entrará em execução, essa etapa extra será detalhada mais a frente.
 
-|                   ![Filas SDumont](filas/1_filas.png)                    |
+|                ![Filas SDumont](images/filas/1_filas.png)                |
 | :----------------------------------------------------------------------: |
 | Fonte da tabela: https://sdumont.lncc.br/support_manual.php?pg=support#5 |
 
