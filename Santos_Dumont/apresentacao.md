@@ -605,9 +605,9 @@ Uma aplicação que vai para a produção, deve ter o seu ambiente de biblioteca
 
 ### Comandos básicos <a name="module-basico"></a>
 
-      Antes de começar com a compilação, é recomendado limpar todos os módulos carregados. Dessa forma você terá
-      maior controle dos módulos que estão em uso e ficará mais fácil de criar o script de submissão do job, como
-      veremos na seção do SLURM.
+      Antes de começar com a compilação, é recomendado limpar todos os módulos carregados. Dessa forma você
+      terá maior controle dos módulos que estão em uso e ficará mais fácil de criar o script de submissão do
+      job, como veremos na seção do SLURM.
 
       module purge     # Descarrega todos os módulos
 
@@ -665,8 +665,6 @@ Uma aplicação que vai para a produção, deve ter o seu ambiente de biblioteca
 
 ## Compilando código C/C++ <a name="compilacao1"></a>
 
-**Carregando os módulos necessários**
-
 Neste exemplo vamos compilar um código escrito em C, mas o mesmo procedimento poderá ser utilizado para compilar um código C++ ou Fortran, desde que eles sejam compatíveis com os compiladores GNU.
 
         Descarregando os módulos
@@ -682,13 +680,13 @@ Neste exemplo vamos compilar um código escrito em C, mas o mesmo procedimento p
         This is free software; see the source for copying conditions.  There is NO
         warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-        A versão padrão do GCC não serve para o código do exemplo, por essa razão, vamos procurar todas as versões
-        disponíveis do compilador.
+        A versão padrão do GCC não serve para o código do exemplo, por essa razão, vamos procurar todas as
+        versões disponíveis do compilador.
 
 
         [luis.manrique@sdumont14 webinar]$ module avail gcc
 
-        ------------------------------------------------------------ /scratch/app/modulos -------------------------------------------------------------
+        --------------------- /scratch/app/modulos -------------------------
         gcc/6.5 gcc/7.4 gcc/8.3
 
 
