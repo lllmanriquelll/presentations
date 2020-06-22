@@ -48,10 +48,7 @@
 
 1. [Module](#module)
 
-   - [module avail](#)
-   - [module load](#)
-   - [module unload](#)
-   - [module purge](#)
+   - [Comandos básicos](#module-basico)
 
 1. [Compilando código C/C++](#compilacao1)
 
@@ -601,6 +598,67 @@ Abaixo eu mostro um passo a passo de como instalar e configurar o Rclone + Googl
 ---
 
 ## Module <a name="module"></a>
+
+Um cluster HPC é compartilhado por muitos usuários, cada um deles com requerimentos de softwares diferentes, por essa razão, a quantidade de aplicativos, bibliotecas e compilares é muito grande, e cada um desses pode ter diversas versões instaladas. Para facilitar a manutenção e evitar incidentes de segurança, essas aplicações são instaladas em locais não padrão.
+
+Não é possível, ou ao menos são desejável, utilizar todos os softwares e bibliotecas ao mesmo tempo, versões diferentes da mesma aplicação costumam dar conflito.
+
+Uma aplicação que vai para a produção, deve ter o seu ambiente de bibliotecas e executáveis configurados fora a aplicação em si. Isso é feito usando um conjunto de instruções e variáveis de ambiente para a aplicação em específico. Para simplificar esse procedimento, no SDumont nós fazemos isso através da aplicação **module**
+
+### Comandos básicos <a name="module-basico"></a>
+
+      Antes de começar com a compilação, é recomendado limpar todos os módulos carregados. Dessa forma você terá maior controle dos módulos que estão em uso e ficará mais fácil de criar o script de submissão do job, como veremos na seção do SLURM.
+
+      module purge     # Descarrega todos os módulos
+
+      module list      # Lista os módulos carregados
+
+      module avail     # Lista os módulos disponíveis
+
+        # É possível usar o avail com o nome parcial do módulo conforme exemplo:
+        [luis.manrique@sdumont14 ~]$ module avail open
+        -------------------------------------------------- /scratch/app/modulos --------------------------------------------------
+        opencoarrays/2.7.0            openmpi/gnu/2.0.4.2+cuda      openmpi/gnu/ilp64/2.0.4.2     openmpi/icc/mt/2.0.4.2
+        openmolcas/intel              openmpi/gnu/3.1.4             openmpi/gnu/mt/2.0.4.2        openmpi/icc/mt/debug/2.0.2.10
+        openmolcas/openmpi-gcc        openmpi/gnu/3.1.5_gcc-7.4     openmpi/gnu/mt/ilp64/2.0.4.2  openmpi/icc/mt/ilp64/2.0.4.2
+        openmpi/gnu/1.8.6             openmpi/gnu/4.0.1             openmpi/icc/2.0.4.2           openmx/3.8_intel
+        openmpi/gnu/2.0.4.14          openmpi/gnu/4.0.1+cuda        openmpi/icc/debug/2.0.2.10    openssl/1.0.0
+        openmpi/gnu/2.0.4.2           openmpi/gnu/4.0.1_gcc-7.4     openmpi/icc/ilp64/2.0.4.2
+        ---------------------------------------------------------------------------------------------------------------------------
+
+      module load     # Carregado um módulo
+
+        Exemplo: module load openmpi/gnu/3.1.5_gcc-7.4
+
+      module unload   # Descarregado um módulo
+
+        Exemplo: module unload openmpi/gnu/3.1.5_gcc-7.4
+
+      module show     # Mostra detalhes de um pacote que é passado por argumento
+
+        [luis.manrique@sdumont14 ~]$ module show openmpi/gnu/3.1.5_gcc-7.4
+        -------------------------------------------------------------------
+        /scratch/app/modulos/openmpi/gnu/3.1.5_gcc-7.4:
+
+        module-whatis    Sets up Open MPI/SHMEM v3.1.5 (compiled with GCC 7.4) in your enviornment
+        prepend-path     PATH /scratch/app/openmpi/3.1_gnu-7.4/bin
+        prepend-path     MANPATH /scratch/app/openmpi/3.1_gnu-7.4/share/man
+        prepend-path     LD_LIBRARY_PATH /scratch/app/openmpi/3.1_gnu-7.4/lib
+        prepend-path     PKG_CONFIG_PATH /scratch/app/openmpi/3.1_gnu-7.4/lib/pkgconfig
+        setenv           MPI_ROOT /scratch/app/openmpi/3.1_gnu-7.4
+        setenv           OMPI_PATH /scratch/app/openmpi/3.1_gnu-7.4/bin
+        setenv           MPI_HOME /scratch/app/openmpi/3.1_gnu-7.4
+        setenv           MPI_INCLUDE /scratch/app/openmpi/3.1_gnu-7.4/include
+        setenv           MPI_LIB /scratch/app/openmpi/3.1_gnu-7.4/lib
+        setenv           OMPI_LD_LIBRARY_PATH /scratch/app/openmpi/3.1_gnu-7.4/lib
+        setenv           OMPI_MCA_btl_openib_allow_ib 1
+        prepend-path     -d   LDFLAGS -L/scratch/app/openmpi/3.1_gnu-7.4/lib
+        prepend-path     -d   CPPFLAGS -I/scratch/app/openmpi/3.1_gnu-7.4/include
+        module           unload gcc/7.4
+        -------------------------------------------------------------------
+
+        Essas informações são úteis para resolver erros na hora da compilação.
+
 
 ---
 
