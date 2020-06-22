@@ -52,14 +52,12 @@
 
 1. [Compilando código C/C++](#compilacao1)
 
-   - [Carregando os módulos necessários](#)
-   - [Encontrando módulos necessários a partir de erros na compilação](#)
-
 1. [Compilando código C/C++ com openMP e openMPI](#compilacao2)
 
    - [Carregando os módulos necessários](#)
+   - [Encontrando módulos necessários a partir de erros na compilação](#)
 
-1. [SLURM](#slurm)
+1) [SLURM](#slurm)
 
    - [Comandos básicos](#)
      - [sinfo](#)
@@ -70,12 +68,12 @@
      - [sbatch](#)
    - [Filas do SLURM](#)
 
-1. [srun - Shell em modo interativo e jupyter notebook](#srun)
+1) [srun - Shell em modo interativo e jupyter notebook](#srun)
 
    - [Rodando um script em python](#)
    - [Acessado o jupyter notebook remotamente](#jupyter)
 
-1. [sbatch - Submissão de jobs](#sbatch)
+1) [sbatch - Submissão de jobs](#sbatch)
    - [Rodando um código C com openMP](#)
    - [Rodando um código C com MPI](#)
 
@@ -666,6 +664,53 @@ Uma aplicação que vai para a produção, deve ter o seu ambiente de biblioteca
 ---
 
 ## Compilando código C/C++ <a name="compilacao1"></a>
+
+**Carregando os módulos necessários**
+
+Neste exemplo vamos compilar um código escrito em C, mas o mesmo procedimento poderá ser utilizado para compilar um código C++ ou Fortran, desde que eles sejam compatíveis com os compiladores GNU.
+
+        Descarregando os módulos
+
+        [luis.manrique@sdumont14 webinar]$ module purge
+
+
+        Verificando a versão do GCC padrão do sistema
+
+        [luis.manrique@sdumont14 webinar]$ gcc --version
+        gcc (GCC) 4.8.5 20150623 (Red Hat 4.8.5-36)
+        Copyright (C) 2015 Free Software Foundation, Inc.
+        This is free software; see the source for copying conditions.  There is NO
+        warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+        A versão padrão do GCC não serve para o código do exemplo, por essa razão, vamos procurar todas as versões
+        disponíveis do compilador.
+
+
+        [luis.manrique@sdumont14 webinar]$ module avail gcc
+
+        ------------------------------------------------------------ /scratch/app/modulos -------------------------------------------------------------
+        gcc/6.5 gcc/7.4 gcc/8.3
+
+
+        Carregando a versão 8.3
+
+        [luis.manrique@sdumont14 webinar]$ module load gcc/8.3
+
+
+        Verificando a versão carregada
+
+        [luis.manrique@sdumont14 webinar]$ gcc --version
+        gcc (GCC) 8.3.0
+        Copyright (C) 2018 Free Software Foundation, Inc.
+        This is free software; see the source for copying conditions.  There is NO
+        warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+
+        Compilando o código
+
+        [luis.manrique@sdumont14 webinar]$ gcc mandelbrot_seq.c -o mandelbrot_seq
+
+**Compilando**
 
 ---
 
