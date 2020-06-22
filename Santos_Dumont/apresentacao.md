@@ -57,7 +57,6 @@
    - [srun - Rodando um script em python em modo interativo](#script_python)
    - [srun - Acessado o jupyter notebook remotamente](#jupyter)
    - [sbatch - Submissão de jobs](#sbatch)
-   - [Filas do Santos Dumont](#filas_sd)
 
 1. [Exemplos SLURM](#exemplos)
 
@@ -148,6 +147,10 @@ A primeira versão do SDumont (2015), chamada de "SDumont Base", possuía um tot
 Os equipamentos do cluster Santos Dumont listados acima representam um valioso recurso computacional, que é compartilhado por diversos grupos de pequisas que possuem vínculo com o Laboratório Nacional de Computação Científica. Para manter os recursos disponíveis para todos os pesquisadores de forma consistente e justa, foi implementado um sistema de filas.
 
 Em um computador não compartilhado, o usuário que define as prioridades de execução e pode rodar os programas diretamente em seu terminal ou gerenciador de janelas, no caso do SDumont, o usuário precisa criar um script e submetê-lo para uma fila (SLURM), que vai determinar em que momento o código entrará em execução, essa etapa extra será detalhada mais a frente.
+
+|                   ![Filas SDumont](filas/1_filas.jpg)                    |
+| :----------------------------------------------------------------------: |
+| Fonte da tabela: https://sdumont.lncc.br/support_manual.php?pg=support#5 |
 
 ---
 
@@ -892,8 +895,6 @@ Além dos parâmetros do shell Linux, há parâmetros especiais do SLURM, abaixo
 | --output           | Gera um arquivo de saída para a execução do job                | Exemplo: =R-%x.%j.out gera arquivo com nome do job e id |
 | --error            | Gera um arquivo de saída para os erros da execução do job      | Exemplo: =R-%x.%j.err gera arquivo com nome do job e id |
 | --exclusive        | Aloca o node para uso exclusivo                                | ----------------------------------------------------    |
-
-### Filas do Santos Dumont <a name="filas_sd"></a>
 
 ---
 
