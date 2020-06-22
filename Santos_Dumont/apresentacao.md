@@ -465,7 +465,10 @@ Caso você tenha utilizado o rsync para enviar seus dados para um servidor com I
 ### rclone <a name="rclone"></a>
 
 Uma outra opção que pode ser utilizada por aqueles que possuem uma conta @usp ou acesso ao google drive ilimitado, é o uso do rclone. Através desse programa é possível sincronizar o seu google drive e utilizá-lo para fazer cópias dos seus arquivos diretamente do terminal do SDumont.
+
 Abaixo eu mostro um passo a passo de como instalar e configurar o Rclone + Google Drive.
+
+**Instalação**
 
 <ol>
 
@@ -741,23 +744,11 @@ Neste exemplo vamos compilar um código escrito em C com openMP e MPI.
 
 ## SLURM <a name="slurm"></a>
 
----
+### Comandos básicos
 
----
+### srun - Rodando um script em python
 
-## srun - Shell em modo interativo e jupyter notebook <a name="srun"></a>
-
----
-
----
-
-### Rodando um script em python
-
----
-
----
-
-### Acessado o jupyter notebook remotamente <a name="jupyter"></a>
+### srun - Acessado o jupyter notebook remotamente <a name="jupyter"></a>
 
 <ol>
 
@@ -792,11 +783,7 @@ Neste exemplo vamos compilar um código escrito em C com openMP e MPI.
 </center>
 </ol>
 
----
-
----
-
-## sbatch - Submissão de jobs <a name="sbatch"></a>
+### sbatch - Submissão de jobs <a name="sbatch"></a>
 
 ---
 
