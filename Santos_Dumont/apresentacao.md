@@ -450,7 +450,7 @@ O /scratch é o local em que os usuários do projeto devem copiar os dados que s
 ## Transferência de dados <a name="transferencia"></a>
 
 Utilizamos uma conexão VPN para conseguir acessar o nó de login do Santos Dumont, essa conexão deve ser mantida por todo o tempo em que estivermos conectados via SSH, transferindo dados por rsync ou scp.
-Os dados enviados e recebidos através da VPN devem ser encriptados, por essa razão, a taxa de transferência é menor do que a nossa conexão pode alcançar.
+Os dados enviados e recebidos através da VPN devem ser criptografados, por essa razão, a taxa de transferência é menor do que a nossa conexão pode alcançar.
 Uma sugestão da equipe do LNCC é que nós possamos estabelecer uma conexão direta entre o cluster e algum IP público que sirva de repositório de dados, caso você possua um acesso desse tipo, prefira fazer upload dos dados diretamente do cluster para o IP público com o rsync e download utilizando o wget.
 
 ### Enviando arquivos <a name="envio"></a>
