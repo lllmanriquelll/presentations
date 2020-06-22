@@ -50,12 +50,10 @@
 
    - [Comandos básicos](#module-basico)
 
-1. [Compilando código C/C++](#compilacao1)
+1. [Compilando código no headnode](#compilacao)
 
-1. [Compilando código C/C++ com openMP e openMPI](#compilacao2)
-
-   - [Carregando os módulos necessários](#)
-   - [Encontrando módulos necessários a partir de erros na compilação](#)
+   - [Compilando código C/C++](#cpp)
+   - [Compilando código C/C++ com openMP e openMPI](#cpp_mpi)
 
 1) [SLURM](#slurm)
 
@@ -663,9 +661,14 @@ Uma aplicação que vai para a produção, deve ter o seu ambiente de biblioteca
 
 ---
 
-## Compilando código C/C++ <a name="compilacao1"></a>
+## Compilando código no headnode <a name="compilacao"></a>
 
-Neste exemplo vamos compilar um código escrito em C, mas o mesmo procedimento poderá ser utilizado para compilar um código C++ ou Fortran, desde que eles sejam compatíveis com os compiladores GNU.
+Abaixo iremos compilar códigos C, mas o mesmo procedimento poderá ser utilizado para compilar um código C++ ou Fortran, desde que eles sejam compatíveis com os compiladores disponíveis no cluster.
+O procedimento para compilar outras linguages é similar, logar no headnode, carregar os módulos e compilar.
+
+### Compilando código C/C++ <a name="cpp"></a>
+
+Neste exemplo vamos compilar um código escrito em C.
 
         Descarregando os módulos
 
@@ -708,13 +711,7 @@ Neste exemplo vamos compilar um código escrito em C, mas o mesmo procedimento p
 
         [luis.manrique@sdumont14 webinar]$ gcc mandelbrot_seq.c -o mandelbrot_seq
 
-**Compilando**
-
----
-
----
-
-## Compilando código C/C++ com openMP e openMPI <a name="compilacao2"></a>
+### Compilando código C/C++ com openMP e openMPI <a name="cpp_mpi"></a>
 
 Neste exemplo vamos compilar um código escrito em C com openMP e MPI.
 
