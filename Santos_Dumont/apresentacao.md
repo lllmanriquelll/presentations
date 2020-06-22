@@ -54,7 +54,7 @@
 1. [SLURM](#slurm)
 
    - [Comandos básicos](#slurm_basico)
-   - [srun - Rodando um script em python](#script_python)
+   - [srun - Rodando um script em python em modo interativo](#script_python)
    - [srun - Acessado o jupyter notebook remotamente](#jupyter)
    - [sbatch - Submissão de jobs](#sbatch)
    - [Filas do Santos Dumont](#filas_sd)
@@ -736,7 +736,103 @@ Neste exemplo vamos compilar um código escrito em C com openMP e MPI.
 
 ### Comandos básicos <a name="slurm_basico"></a>
 
-### srun - Rodando um script em python <a name="script_python"></a>
+        sinfo #Exibe informação sobre as filas do SLURM
+
+        #Como o SDumont tem muitas partições, use o -s para resumir a lista
+        sinfo -s
+        [luis.manrique@sdumont11 ~]$ sinfo -s
+        PARTITION        AVAIL  TIMELIMIT   NODES(A/I/O/T)  NODELIST
+        cpu*                up   infinite    361/19/28/408  sdumont[1080-1149,1159-1193,1201-1503]
+        nvidia              up   infinite     171/20/1/192  sdumont[3006-3197]
+        gdl                 up   infinite          1/0/0/1  sdumont4000
+        mesca2              up   infinite          1/0/0/1  sdumont57
+        cpu_small           up   infinite    361/19/28/408  sdumont[1080-1149,1159-1193,1201-1503]
+        nvidia_small        up   infinite     171/20/1/192  sdumont[3006-3197]
+        cpu_dev             up   infinite    363/47/28/438  sdumont[1064-1149,1159-1193,1201-1503,5030-5043]
+        nvidia_dev          up   infinite     171/20/1/192  sdumont[3006-3197]
+        cpu_scal            up   infinite    361/19/28/408  sdumont[1080-1149,1159-1193,1201-1503]
+        cpu_long            up   infinite    361/19/28/408  sdumont[1080-1149,1159-1193,1201-1503]
+        nvidia_scal         up   infinite     171/20/1/192  sdumont[3006-3197]
+        nvidia_long         up   infinite     171/20/1/192  sdumont[3006-3197]
+        cpu_shared          up   infinite        18/0/2/20  sdumont[5010-5029]
+        sequana_cpu         up   infinite     127/26/3/156  sdumont[6104-6169,6192-6251,6255-6275,6279-6287]
+        sequana_cpu_dev     up      20:00     127/45/3/175  sdumont[6085-6169,6192-6251,6255-6275,6279-6287]
+        sequana_cpu_long    up   infinite     127/26/3/156  sdumont[6104-6169,6192-6251,6255-6275,6279-6287]
+        sequana_gpu         up   infinite       31/21/0/52  sdumont[8034-8055,8064-8083,8085-8091,8093-8095]
+        sequana_gpu_dev     up      20:00       31/26/0/57  sdumont[8029-8055,8064-8083,8085-8091,8093-8095]
+        sequana_gpu_long    up   infinite       31/21/0/52  sdumont[8034-8055,8064-8083,8085-8091,8093-8095]
+        cptec               up   infinite       74/16/0/90  sdumont[6104-6169,6192-6215]
+        cptec_long          up   infinite       74/16/0/90  sdumont[6104-6169,6192-6215]
+        dockthor_sequana    up   infinite          0/1/0/1  sdumont8033
+        sd_cpu              up   infinite     116/56/3/175  sdumont[6000-6084,6192-6251,6255-6275,6279-6287]
+        sd_cpu_bigmem       up   infinite        4/32/0/36  sdumont[6000-6035]
+        sd_gpu              up   infinite        48/9/1/58  sdumont[8000-8027,8064-8083,8085-8091,8093-8095]
+        ict_cpu             up   infinite      77/26/9/112  sdumont[6170-6251,6255-6275,6279-6287]
+        ict_gpu             up   infinite       27/11/0/38  sdumont[8056-8083,8085-8091,8093-8095]
+
+
+        squeue #Exibe os jobs nas diferentes partições
+
+        #O comando exibe todos os jobs na fila, use o -u user para listar apenas as suas submissões
+        squeue -u luis.manrique
+
+        #Para ter uma estimativa de quanto o job iniciará utilize o --start
+        squeue --start -u luis.manrique
+
+
+        scancel #Comando utilizado para cancelar jobs
+
+        #Verifique o job_id com o squeue e depois use como argumento para o scancel
+        scancel job_id
+
+### srun - Rodando um script em python me modo interativo <a name="script_python"></a>
+
+<ol>
+<br><li>Reserve um ou mais nodes para execução com o srun</li>
+
+        srun --nodes=1 -p cpu_dev --pty bash -i
+        # --nodes=N        quantidade de nodes
+        # -p               partição/fila que será utilizada, verifique a disponibilidade e nomes com o sinfo
+        # --pty bash -i    retorna uma sessão bash
+
+<br><li>Carregue o python</li>
+
+        #Para utilizar o anaconda da partição do cadase:
+          eval "$(/scratch/cadase/app/anaconda3/bin/conda shell.bash hook)"
+        #Verificando a versão do python em uso
+          (base) bash-4.2$ which -a python
+          /scratch/cadase/app/anaconda3/bin/python
+          /usr/bin/python
+
+        #Para utilizar o python e bibliotecas do firedrake da partição do cadase
+          . /scratch/cadase/app/firedrake/bin/activate
+        #Verificando a versão do python em uso
+          (firedrake) (base) bash-4.2$ which -a python
+          /scratch/cadase/app/firedrake/bin/python
+          /scratch/app/anaconda3/2018.12/bin/python
+          /usr/bin/python
+
+<br><li>Exemplo de uso com o código benchmark do devito</li>
+
+        srun --nodes=1 --cpus-per-task=24 --exclusive -p cpu_dev --pty bash -i
+        module purge
+        module load gcc/8.3
+
+        #Carregando o Anaconda + Devito
+        eval "$(/scratch/cadase/app/anaconda3/bin/conda shell.bash hook)"
+        source activate /scratch/cadase/app/anaconda3/envs/devito
+
+        #Configurando o ambiente para o Devito
+        export DEVITO_ARCH=gcc
+        export DEVITO_PLATFORM=intel64
+        export DEVITO_LOGGING=DEBUG
+        export DEVITO_LANGUAGE=openmp
+        export DEVITO_AUTOTUNING=aggressive
+        export OMP_NUM_THREADS=24
+
+        python /scratch/cadase/app/devito/benchmarks/user/benchmark.py bench -P acoustic -d 512 512 512 -so 12 --arch gcc --tn 100 -a aggressive
+
+</ol>
 
 ### srun - Acessado o jupyter notebook remotamente <a name="jupyter"></a>
 
