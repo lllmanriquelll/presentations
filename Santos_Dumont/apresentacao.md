@@ -36,10 +36,6 @@
 
 1. [Entendendo as partições dos discos](#particoes)
 
-   - [/home](#home)
-   - [/prj](#prj)
-   - [/scratch](#scracth)
-
 1. [Transferência de dados](#transferencia)
 
    - [Enviando arquivos](#envio)
@@ -537,7 +533,8 @@ Abaixo eu mostro um passo a passo de como instalar e configurar o Rclone + Googl
 
       ssh -L 53682:localhost:53682 luis.manrique@login.sdumont.lncc.br
 
-      #Verifique se o nó de login é o mesmo em que a url foi gerada, caso não seja, saia da sessão e tente fazer o "ssh -L" novamente
+      #Verifique se o nó de login é o mesmo em que a url foi gerada, caso não seja, saia da sessão
+      e tente fazer o "ssh -L" novamente
 
 <br><li>Volte para a janela anterior, copie a url e cole no seu browser. <br> Autorize a conta utilizando o seu e-mail @usp.br. Feche o browser e a janela com o túnel "ssh -L"</li>
 
