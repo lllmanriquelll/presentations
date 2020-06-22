@@ -716,6 +716,31 @@ Neste exemplo vamos compilar um código escrito em C, mas o mesmo procedimento p
 
 ## Compilando código C/C++ com openMP e openMPI <a name="compilacao2"></a>
 
+Neste exemplo vamos compilar um código escrito em C com openMP e MPI.
+
+        Descarregando os módulos
+
+        [luis.manrique@sdumont11 webinar]$ module purge
+
+
+        Para compilar esse código é necessário carregar as bibliotecas MPI, vamos usar o mpicc.
+
+        [luis.manrique@sdumont11 C_par]$ module avail openmpi
+        -------------------------------------- /scratch/app/modulos ------------------------------------------
+        openmpi/gnu/1.8.6             openmpi/gnu/2.0.4.2+cuda      openmpi/gnu/4.0.1
+        openmpi/gnu/2.0.4.14          openmpi/gnu/3.1.4             openmpi/gnu/4.0.1+cuda
+        openmpi/gnu/2.0.4.2           openmpi/gnu/3.1.5_gcc-7.4     openmpi/gnu/4.0.1_gcc-7.4
+
+
+        Carregando a versão 3.1.4
+
+        [luis.manrique@sdumont11 webinar]$ module load openmpi/gnu/3.1.4
+
+
+        Compilando o código
+
+        [luis.manrique@sdumont11 webinar]$ mpicc -std=c11 mandelbrot_mpi_omp.c -o mandelbrot_mpi_omp -fopenmp
+
 ---
 
 ---
