@@ -607,7 +607,9 @@ Uma aplicação que vai para a produção, deve ter o seu ambiente de biblioteca
 
 ### Comandos básicos <a name="module-basico"></a>
 
-      Antes de começar com a compilação, é recomendado limpar todos os módulos carregados. Dessa forma você terá maior controle dos módulos que estão em uso e ficará mais fácil de criar o script de submissão do job, como veremos na seção do SLURM.
+      Antes de começar com a compilação, é recomendado limpar todos os módulos carregados. Dessa forma você terá
+      maior controle dos módulos que estão em uso e ficará mais fácil de criar o script de submissão do job, como
+      veremos na seção do SLURM.
 
       module purge     # Descarrega todos os módulos
 
@@ -617,14 +619,14 @@ Uma aplicação que vai para a produção, deve ter o seu ambiente de biblioteca
 
         # É possível usar o avail com o nome parcial do módulo conforme exemplo:
         [luis.manrique@sdumont14 ~]$ module avail open
-        -------------------------------------------------- /scratch/app/modulos --------------------------------------------------
-        opencoarrays/2.7.0            openmpi/gnu/2.0.4.2+cuda      openmpi/gnu/ilp64/2.0.4.2     openmpi/icc/mt/2.0.4.2
-        openmolcas/intel              openmpi/gnu/3.1.4             openmpi/gnu/mt/2.0.4.2        openmpi/icc/mt/debug/2.0.2.10
-        openmolcas/openmpi-gcc        openmpi/gnu/3.1.5_gcc-7.4     openmpi/gnu/mt/ilp64/2.0.4.2  openmpi/icc/mt/ilp64/2.0.4.2
-        openmpi/gnu/1.8.6             openmpi/gnu/4.0.1             openmpi/icc/2.0.4.2           openmx/3.8_intel
-        openmpi/gnu/2.0.4.14          openmpi/gnu/4.0.1+cuda        openmpi/icc/debug/2.0.2.10    openssl/1.0.0
+        -------------------------------- /scratch/app/modulos ----------------------------------
+        opencoarrays/2.7.0            openmpi/gnu/2.0.4.2+cuda      openmpi/gnu/ilp64/2.0.4.2
+        openmolcas/intel              openmpi/gnu/3.1.4             openmpi/gnu/mt/2.0.4.2
+        openmolcas/openmpi-gcc        openmpi/gnu/3.1.5_gcc-7.4     openmpi/gnu/mt/ilp64/2.0.4.2
+        openmpi/gnu/1.8.6             openmpi/gnu/4.0.1             openmpi/icc/2.0.4.2
+        openmpi/gnu/2.0.4.14          openmpi/gnu/4.0.1+cuda        openmpi/icc/debug/2.0.2.10
         openmpi/gnu/2.0.4.2           openmpi/gnu/4.0.1_gcc-7.4     openmpi/icc/ilp64/2.0.4.2
-        ---------------------------------------------------------------------------------------------------------------------------
+        -----------------------------------------------------------------------------------------
 
       module load     # Carregado um módulo
 
@@ -658,7 +660,6 @@ Uma aplicação que vai para a produção, deve ter o seu ambiente de biblioteca
         -------------------------------------------------------------------
 
         Essas informações são úteis para resolver erros na hora da compilação.
-
 
 ---
 
