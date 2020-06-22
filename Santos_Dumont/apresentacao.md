@@ -785,6 +785,11 @@ Neste exemplo vamos compilar um código escrito em C com openMP e MPI.
         #Verifique o job_id com o squeue e depois use como argumento para o scancel
         scancel job_id
 
+        srun #Aloca os recursos e roda a aplicação de imediato, é possível rodar no modo interativo
+              e usar o shell
+
+        sbatch #Submete o trabalho para uma fila, aloca os recursos e roda de forma não interativa
+
 ### srun - Rodando um script em python me modo interativo <a name="script_python"></a>
 
 <ol>
@@ -792,7 +797,8 @@ Neste exemplo vamos compilar um código escrito em C com openMP e MPI.
 
         srun --nodes=1 -p cpu_dev --pty bash -i
         # --nodes=N        quantidade de nodes
-        # -p               partição/fila que será utilizada, verifique a disponibilidade e nomes com o sinfo
+        # -p               partição/fila que será utilizada, verifique a disponibilidade e nomes
+                           com o sinfo
         # --pty bash -i    retorna uma sessão bash
 
 <br><li>Carregue o python</li>
@@ -870,6 +876,22 @@ Neste exemplo vamos compilar um código escrito em C com openMP e MPI.
 </ol>
 
 ### sbatch - Submissão de jobs <a name="sbatch"></a>
+
+O sbatch é utilizado para submeter jobs para a fila de execução, os arquivos submetidos aceitam a sintaxe do Shell Script, é possível criar arquivos, remover, configurar variáveis de ambiente entre outros.
+
+Além dos parâmetros do shell Linux, há parâmetros especiais do SLURM, abaixo segue uma lista dos mais utilizados:
+
+| Parâmetro          | Função                                                         | Argumentos                                              |
+| :----------------- | :------------------------------------------------------------- | :------------------------------------------------------ |
+| --nodes            | Número de nodes a ser alocado                                  | Integer, de 1 até o limite da fila                      |
+| --cpus-per-task    | Número de cpus, utilizar para setar o número de threads        | Integer, de 1 até o limite de threads                   |
+| --nstaks           | Número de processos total, somando de todos os nodes alocados  | Integer, de 1 até o máximo de cores alocados somados    |
+| --nstasks-per-node | Número de processos em cada node                               | Integer, de 1 até o número de cores do node             |
+| --partition        | Seleciona a partição/fila a ser utilizada                      | Utilize os nomes de fila do sinfo                       |
+| --job-name         | Configura um nome para o job, ele aparecerá no squeue e output | Utilize qualquer string                                 |
+| --output           | Gera um arquivo de saída para a execução do job                | Exemplo: =R-%x.%j.out gera arquivo com nome do job e id |
+| --error            | Gera um arquivo de saída para os erros da execução do job      | Exemplo: =R-%x.%j.err gera arquivo com nome do job e id |
+| --exclusive        | Aloca o node para uso exclusivo                                | ----------------------------------------------------    |
 
 ### Filas do Santos Dumont <a name="filas_sd"></a>
 
