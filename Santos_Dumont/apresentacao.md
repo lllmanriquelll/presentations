@@ -51,25 +51,15 @@
    - [Compilando código C/C++](#cpp)
    - [Compilando código C/C++ com openMP e openMPI](#cpp_mpi)
 
-1) [SLURM](#slurm)
+1. [SLURM](#slurm)
 
-   - [Comandos básicos](#)
-     - [sinfo](#)
-     - [squeue](#)
-     - [scancel](#)
-   - [Alocando recursos](#)
-     - [srun](#)
-     - [sbatch](#)
-   - [Filas do SLURM](#)
+   - [Comandos básicos](#slurm_basico)
+   - [srun - Rodando um script em python](#script_python)
+   - [srun - Acessado o jupyter notebook remotamente](#jupyter)
+   - [sbatch - Submissão de jobs](#sbatch)
+   - [Filas do Santos Dumont](#filas_sd)
 
-1) [srun - Shell em modo interativo e jupyter notebook](#srun)
-
-   - [Rodando um script em python](#)
-   - [Acessado o jupyter notebook remotamente](#jupyter)
-
-1) [sbatch - Submissão de jobs](#sbatch)
-   - [Rodando um código C com openMP](#)
-   - [Rodando um código C com MPI](#)
+1. [Exemplos SLURM](#exemplos)
 
 ## Introdução <a name="introducao"></a>
 
@@ -744,9 +734,9 @@ Neste exemplo vamos compilar um código escrito em C com openMP e MPI.
 
 ## SLURM <a name="slurm"></a>
 
-### Comandos básicos
+### Comandos básicos <a name="slurm_basico"></a>
 
-### srun - Rodando um script em python
+### srun - Rodando um script em python <a name="script_python"></a>
 
 ### srun - Acessado o jupyter notebook remotamente <a name="jupyter"></a>
 
@@ -784,6 +774,14 @@ Neste exemplo vamos compilar um código escrito em C com openMP e MPI.
 </ol>
 
 ### sbatch - Submissão de jobs <a name="sbatch"></a>
+
+### Filas do Santos Dumont <a name="filas_sd"></a>
+
+---
+
+---
+
+## Exemplos SLURM <a name="exemplos"></a>
 
 ---
 
