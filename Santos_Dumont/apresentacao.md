@@ -902,6 +902,126 @@ Além dos parâmetros do shell Linux, há parâmetros especiais do SLURM, abaixo
 
 ## Exemplos SLURM <a name="exemplos"></a>
 
+**OpenFOAM**
+
+**Lammps**
+
+**Devito**
+
+        #!/bin/bash
+        #SBATCH --nodes=1                      #Numero de Nós
+        #SBATCH --cpus-per-task=24             #Numero de threads
+        #SBATCH -p cpu_dev                     #Fila (partition) a ser utilizada
+        #SBATCH -J devito_benchmark            #Nome job
+        #SBATCH --output=R-%x.%j.out
+        #SBATCH --error=R-%x.%j.err
+        #SBATCH --exclusive
+
+        #Entra no diretorio scratch de submissao
+        cd $SLURM_SUBMIT_DIR
+
+        #Limpa o cache de modulos
+        module purge
+
+        #Configurando os compiladores GNU
+        module load gcc/8.3
+
+        #Configurando os compiladores Intel
+        #source /scratch/app/modulos/intel-psxe-2019.sh
+
+        #Configurando o Anaconda + Devito
+        eval "$(/scratch/cadase/app/anaconda3/bin/conda shell.bash hook)"
+        source activate /scratch/cadase/app/anaconda3/envs/devito
+
+        #Em algumas execucoes o Devito nao consegue compilar atraves dos parametros
+        #gerados automaticamente, nesse caso, descomente a linha abaixo
+        #export CFLAGS="-O3 -g -fPIC -Wall -std=c99 -march=native -Wno-unused-result -Wno-unused-variable -Wno-unused-but-set-variable --fast-math -shared -fopenmp"
+
+        export DEVITO_ARCH=gcc
+        export DEVITO_PLATFORM=intel64
+        export DEVITO_LOGGING=DEBUG
+        export DEVITO_LANGUAGE=openmp
+        export DEVITO_AUTOTUNING=aggressive
+        export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
+        python /scratch/cadase/app/devito/benchmarks/user/benchmark.py bench -P acoustic -d 512 512 512 -so 12 --arch gcc --tn 100 -a aggressive
+
+**Firedrake**
+
+        #!/bin/bash
+        #SBATCH --nodes=1                      #Numero de Nós
+        #SBATCH --cpus-per-task=24             #Numero de threads
+        #SBATCH -p cpu_dev                     #Fila (partition) a ser utilizada
+        #SBATCH -J firedrake-example           #Nome job
+        #SBATCH --output=R-%x.%j.out
+        #SBATCH --error=R-%x.%j.err
+        #SBATCH --exclusive
+
+        #Exibe os nós alocados para o Job
+        echo $SLURM_JOB_NODELIST
+        nodeset -e $SLURM_JOB_NODELIST
+
+        #Entra no diretorio scratch de submissao
+        cd $SLURM_SUBMIT_DIR
+
+        #Limpa o cache de modulos
+        module purge
+
+        #Configurando os compiladores GNU
+        module load gcc/8.3
+        module load git/2.23
+
+        #Configurando os compiladores Intel
+        #source /scratch/app/modulos/intel-psxe-2019.sh
+
+        #Configurando o Firedrake
+        . /scratch/cadase/app/firedrake/bin/activate
+
+        python helmholtz.py
+
+**Código genérico MPI**
+
+        #!/bin/bash
+        #SBATCH --nodes=2                      #Numero de Nós
+        #SBATCH --ntasks-per-node=24           #Numero total de processos
+        #SBATCH --ntasks=48                    #Numero de processos por node
+        #SBATCH -p cpu_dev                     #Fila (partition) a ser utilizada
+        #SBATCH -J mandelbrot_mpi_omp          #Nome job
+        #SBATCH --output=R-%x.%j.out
+        #SBATCH --error=R-%x.%j.err
+        #SSBATCH --exclusive
+
+        #Entra no diretorio scratch de submissao
+        cd $SLURM_SUBMIT_DIR
+
+        #Criando o arquivo hosts
+        export HOSTFILE=host-$SLURM_JOBID
+        nodeset -e $SLURM_NODELIST | grep -Po '[^\s]+' > $HOSTFILE
+
+        #Limpa o cache de modulos
+        module purge
+
+        #Carregando os modulos
+        module load openmpi/gnu/3.1.4
+
+        #Configurando os compiladores Intel
+        #source /scratch/app/modulos/intel-psxe-2019.sh
+
+        #numero total de processos
+        #echo $SLURM_NTASKS
+
+        #numero de processos por node
+        #echo $SLURM_NTASKS_PER_NODE
+
+        #Lista de nodes alocados
+        #echo `nodeset -e $SLURM_NODELIST`
+
+        #Rodando o código com o mpirun
+        mpirun -n $SLURM_NTASKS -npernode $SLURM_NTASKS_PER_NODE -machinefile $HOSTFILE --display-map ./mandelbrot_mpi_omp 2
+
+        #Removendo arquivo hosts
+        rm $HOSTFILE
+
 ---
 
 ---
