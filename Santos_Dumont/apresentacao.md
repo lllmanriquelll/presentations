@@ -59,6 +59,11 @@
    - [sbatch - Submissão de jobs](#sbatch)
 
 1. [Exemplos SLURM](#exemplos)
+   - [OpenFOAM](#openfoam-slurm)
+   - [Lammps](#lammps-slurm)
+   - [Devito](#devito-slurm)
+   - [Firedrake](#firedrake-slurm)
+   - [Código genérico MPI](#mpi-slurm)
 
 ## Introdução <a name="introducao"></a>
 
@@ -902,7 +907,7 @@ Além dos parâmetros do shell Linux, há parâmetros especiais do SLURM, abaixo
 
 ## Exemplos SLURM <a name="exemplos"></a>
 
-**OpenFOAM**
+### OpenFOAM <a name="openfoam-slurm"></a>
 
 Para rodar o openFOAM em paralelo é necessário configurar os arquivos da execução, gerar Mesh e decompor o problema. Abaixo descrevo o passo a passo para rodar em 24 processos MPI, para replicar o modelo você deve alterar os diretórios para o seu diretório /scratch/cadase/user.
 
@@ -987,7 +992,7 @@ Decompondo em regiões
         cd ..
         decomposePar
 
-<li>Agora os arquivos estão prontos para rodar em paralelo, use o arquivo .slurm para submeter o job com o sbatch confrme o exemplo</li>
+<li>Agora os arquivos estão prontos para rodar em paralelo, use o arquivo .slurm para submeter o job com o sbatch conforme o exemplo</li>
 
         #!/bin/bash
         #SBATCH --nodes=1                      #Numero de Nós
@@ -1025,9 +1030,9 @@ Decompondo em regiões
 
 </ol>
 
-**Lammps**
+### Lammps <a name="lammps-slurm"></a>
 
-**Devito**
+### Devito <a name="devito-slurm"></a>
 
         #!/bin/bash
         #SBATCH --nodes=1                      #Numero de Nós
@@ -1067,7 +1072,7 @@ Decompondo em regiões
 
         python /scratch/cadase/app/devito/benchmarks/user/benchmark.py bench -P acoustic -d 512 512 512 -so 12 --arch gcc --tn 100 -a aggressive
 
-**Firedrake**
+### Firedrake <a name="firedrake-slurm"></a>
 
         #!/bin/bash
         #SBATCH --nodes=1                      #Numero de Nós
@@ -1100,7 +1105,7 @@ Decompondo em regiões
 
         python helmholtz.py
 
-**Código genérico MPI**
+### Código genérico MPI <a name="mpi-slurm"></a>
 
         #!/bin/bash
         #SBATCH --nodes=2                      #Numero de Nós
