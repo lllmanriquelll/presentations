@@ -1001,7 +1001,7 @@ Decompondo em regiões
         #SBATCH -J openfoam                    #Nome job
         #SBATCH --output=R-%x.%j.out
         #SBATCH --error=R-%x.%j.err
-        #SSBATCH --exclusive
+        #SBATCH --exclusive
 
         #Entra no diretorio scratch de submissao
         cd $SLURM_SUBMIT_DIR
@@ -1031,6 +1031,39 @@ Decompondo em regiões
 </ol>
 
 ### Lammps <a name="lammps-slurm"></a>
+
+        #!/bin/bash
+        #SBATCH --nodes=1                      #Numero de Nós
+        #SBATCH --ntasks=24                    #Numero de processos por node
+        #SBATCH -p cpu_dev                     #Fila (partition) a ser utilizada
+        #SBATCH -J lammps                      #Nome job
+        #SBATCH --output=R-%x.%j.out
+        #SBATCH --error=R-%x.%j.err
+        #SBATCH --exclusive
+
+        #Entra no diretorio scratch de submissao
+        cd $SLURM_SUBMIT_DIR
+
+        #Criando o arquivo hosts
+        export HOSTFILE=host-$SLURM_JOBID
+        nodeset -e $SLURM_NODELIST | grep -Po '[^\s]+' > $HOSTFILE
+
+        #Limpa o cache de modulos
+        module purge
+
+        #Carregando o GNU/GCC
+        module load gcc/8.3
+
+        #Carregando as bibliotecas da Intel
+        source /opt/intel/parallel_studio_xe_2019/parallel_studio_xe_2019.3.062/psxevars.sh
+
+        #Copiando um exemplo de input para rodar o openFoam
+        cp /scratch/cadase/app/lammps/examples/indent/in.indent .
+
+        mpirun -n 24 /scratch/cadase/app/lammps/src/lmp_mpi -in in.indent
+
+        #Removendo arquivo hosts
+        rm $HOSTFILE
 
 ### Devito <a name="devito-slurm"></a>
 
