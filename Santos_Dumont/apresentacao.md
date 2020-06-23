@@ -982,12 +982,10 @@ para:
 
         distributed     yes;
 
-        numberOfSubdomains 24;
-        (4 3 2)
-
 Decompondo em regiões
-cd ..
-decomposePar
+
+        cd ..
+        decomposePar
 
 <li>Agora os arquivos estão prontos para rodar em paralelo, use o arquivo .slurm para submeter o job com o sbatch confrme o exemplo</li>
 
