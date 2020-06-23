@@ -904,6 +904,129 @@ Além dos parâmetros do shell Linux, há parâmetros especiais do SLURM, abaixo
 
 **OpenFOAM**
 
+Para rodar o openFOAM em paralelo é necessário configurar os arquivos da execução, gerar Mesh e decompor o problema. Abaixo descrevo o passo a passo para rodar em 24 processos MPI, para replicar o modelo você deve alterar os diretórios para o seu diretório /scratch/cadase/user.
+
+<ol>
+<li>Preparando o ambiente com as variáveis e compiladores</li>
+
+        module purge
+        module load gcc/8.3
+        source /opt/intel/parallel_studio_xe_2019/parallel_studio_xe_2019.3.062/psxevars.sh
+        source /scratch/cadase/app/openfoam/OpenFOAM-1912/etc/bashrc
+        export FOAM_RUN=/scratch/cadase/luis.manrique/run
+
+<li>Copiando os exemplos para o seu diretório $FOAM_RUN</li>
+
+        tut
+        mkdir /scratch/cadase/luis.manrique/run
+        cp -r ../tutorials $FOAM_RUN
+
+<li>Modificando os arquivos para rodar em paralelo</li>
+
+        cd $FOAM_RUN/tutorials/multiphase/interFoam/laminar
+        mkdir damBreakFine
+        cp -r damBreak/damBreak/0 damBreakFine
+        cp -r damBreak/damBreak/system damBreakFine
+        cp -r damBreak/damBreak/constant damBreakFine
+
+<li>Altere o block do arquivo blockMeshDict</li>
+
+        cd damBreakFine/system
+        vim blockMeshDict # Remova as linhas do blocks e insera as linhas a seguir
+
+        blocks
+        (
+            hex (0 1 5 4 12 13 17 16) (46 10 1) simpleGrading (1 1 1)
+            hex (2 3 7 6 14 15 19 18) (40 10 1) simpleGrading (1 1 1)
+            hex (4 5 9 8 16 17 21 20) (46 76 1) simpleGrading (1 2 1)
+            hex (5 6 10 9 17 18 22 21) (4 76 1) simpleGrading (1 2 1)
+            hex (6 7 11 10 18 19 23 22) (40 76 1) simpleGrading (1 2 1)
+        );
+
+        cd ..
+        blockMesh
+
+<li>Copiando arquivos e configurando field values</li>
+
+        cp -r 0/alpha.water.orig 0/alpha.water
+        setFields
+
+<li>Configurando o subdomains para rodar em paralelo, configure para o número de processos que irá utilizar</li>
+
+        cd system
+        vim decomposeParDict
+
+altere de:
+
+        numberOfSubdomains 4;
+
+        method          simple;
+
+        coeffs
+        {
+            n           (2 2 1);
+        }
+
+        distributed     no;
+
+para:
+
+        numberOfSubdomains 24;
+
+        method          simple;
+
+        coeffs
+        {
+            n           (4 3 2);
+        }
+
+        distributed     yes;
+
+        numberOfSubdomains 24;
+        (4 3 2)
+
+Decompondo em regiões
+cd ..
+decomposePar
+
+<li>Agora os arquivos estão prontos para rodar em paralelo, use o arquivo .slurm para submeter o job com o sbatch confrme o exemplo</li>
+
+        #!/bin/bash
+        #SBATCH --nodes=1                      #Numero de Nós
+        #SBATCH --ntasks=24                    #Numero de processos por node
+        #SBATCH -p cpu_dev                     #Fila (partition) a ser utilizada
+        #SBATCH -J openfoam                    #Nome job
+        #SBATCH --output=R-%x.%j.out
+        #SBATCH --error=R-%x.%j.err
+        #SSBATCH --exclusive
+
+        #Entra no diretorio scratch de submissao
+        cd $SLURM_SUBMIT_DIR
+
+        #Criando o arquivo hosts
+        export HOSTFILE=host-$SLURM_JOBID
+        nodeset -e $SLURM_NODELIST | grep -Po '[^\s]+' > $HOSTFILE
+
+        #Limpa o cache de modulos
+        module purge
+
+        #Carregando o GNU/GCC
+        module load gcc/8.3
+
+        #Carregando as bibliotecas da Intel
+        source /opt/intel/parallel_studio_xe_2019/parallel_studio_xe_2019.3.062/psxevars.sh
+
+        #Carregado o openFOAM instalado para o projeto
+        source /scratch/cadase/app/openfoam/OpenFOAM-1912/etc/bashrc
+        export FOAM_RUN=/scratch/cadase/luis.manrique/run
+
+        mpirun -n 24 interFoam -case $FOAM_RUN/tutorials/multiphase/interFoam/laminar/damBreakFine -parallel
+
+        #Removendo arquivo hosts
+        rm $HOSTFILE
+
+</ol>
+
 **Lammps**
 
 **Devito**
