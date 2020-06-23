@@ -186,7 +186,7 @@ Com essa cota de processamento, nós poderíamos utilizar 45 nós CPU com ocupa�
 
 O espaço em disco é limitado, temos acesso a duas partições com cotas:
 
-- /prj 25TB (a confirmar)
+- /prj 5TB
 - /scracth 25TB
 
 ### Softwares do projeto <a name="software"></a>
@@ -267,10 +267,18 @@ Para adicionar a senha do grupo, selecione <b>Store password ...</b>.</li><br>
 
 ### SSH Client <a name="client"></a>
 
-O acesso ao cluster SDumont se dá através de conexão SSH. Os sistemas operacionais Linux e macOS já possuem um cliente instalado por padrão.
-Abaixo segue o link para a instalação do cliente SSH PuTTY no Windows:
+O acesso ao cluster SDumont se dá através de conexão SSH. Os sistemas operacionais Windows, Linux e macOS já possuem um cliente ssh instalado por padrão.
+Caso o cliente ssh ainda não esteja ativado no seu Windows, siga os passos listados abaixo:
 
-      https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
+<ol>
+<li>Pressione WIN + I para abrir Settings</li>
+<li>Abra Apps > Apps & features</li>
+<li>Clique em Optional features</li>
+<li>Clique +Add a feature</li>
+<li>Procure OpenSSH Client na lista</li>
+<li>Selecione e clique em Install</li>
+<li>Reinicie o computador</li>
+</ol>
 
 ---
 
