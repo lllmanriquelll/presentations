@@ -411,7 +411,11 @@ Uma vez estabelecida a conexão, é possível utilizar ferramentas da sua interf
 
 <br><li>Estabelecendo a conexão:</li><br>
 
-      sudo sshfs luis.manrique@login.sdumont.lncc.br: ~/sdumont-fs
+      # O Comando abaixo monta o HOME do SDumont na máquina local
+      sudo sshfs -o allow_other luis.manrique@login.sdumont.lncc.br: ~/sdumont-fs
+
+      # O Comando abaixo monta o diretório de scratch do SDumont na máquina local
+      sudo sshfs -o allow_other luis.manrique@login.sdumont.lncc.br:/scratch/cadase/luis.manrique ~/sdumont-fs
 
 <br><li>O diretório remoto deve aparecer no Natilus conforme a imagem abaixo:</li><br>
 
