@@ -1035,7 +1035,7 @@ Decompondo em regiões
         source /scratch/cadase/app/openfoam/OpenFOAM-1912/etc/bashrc
         export FOAM_RUN=/scratch/cadase/luis.manrique/run
 
-        mpirun -n 24 interFoam -case $FOAM_RUN/tutorials/multiphase/interFoam/laminar/damBreakFine -parallel
+        mpiexec -n 24 interFoam -case $FOAM_RUN/tutorials/multiphase/interFoam/laminar/damBreakFine -parallel
 
         #Removendo arquivo hosts
         rm $HOSTFILE
